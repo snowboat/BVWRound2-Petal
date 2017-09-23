@@ -261,6 +261,10 @@ MonoBehaviour:
   heightOffset: 0
   flowerPrefab: {fileID: 1124039662420020, guid: 47a9c166496ed1945a68506d5b38713b,
     type: 2}
+  petalPrefab: {fileID: 1189652996542884, guid: f8b21176b62f86948976794636c3401c,
+    type: 2}
+  petalCurvePrefab: {fileID: 1188581381851392, guid: bdd5c7d89589b264c856befb5bfbd37d,
+    type: 2}
   dogPrefab: {fileID: 1496019865790394, guid: f0b4f234dd567584a94a253ae6461a52, type: 2}
 --- !u!4 &946049438
 Transform:
