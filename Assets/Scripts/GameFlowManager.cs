@@ -44,6 +44,9 @@ namespace BASE {
                 Instantiate(GameModel.Instance.flowerPrefab, new Vector3(0, GameModel.Instance.heightOffset, 2), Quaternion.identity);
             });
             Instance.Register(GameState.GRASSANIM, () => {
+                GameObject curve = Instantiate(GameModel.Instance.petalCurvePrefab, new Vector3(0, GameModel.Instance.heightOffset, 2), Quaternion.identity);
+                GameObject petal = Instantiate(GameModel.Instance.petalPrefab, new Vector3(0, GameModel.Instance.heightOffset, 2), Quaternion.identity);
+                petal.GetComponent<SplineWalker>().spline = curve.GetComponent<BezierSpline>();
                 Instantiate(GameModel.Instance.dogPrefab, new Vector3(0, GameModel.Instance.heightOffset, -2), Quaternion.identity);
             });
         }
