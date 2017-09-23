@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using HoloToolkit.Unity.InputModule;
 
-public class HandInputControl : MonoBehaviour, IInputHandler {
+public class DragControl : MonoBehaviour, IInputHandler {
 
     public static Vector3 InputOffset = new Vector3(-0.06f,0.05f,0f);
-
 
     GameObject cam;
 
@@ -21,6 +20,7 @@ public class HandInputControl : MonoBehaviour, IInputHandler {
         Vector3 pos;
         inputSource = eventData.InputSource;
         inputSourceId = eventData.SourceId;
+        Debug.Log(inputSourceId);
         inputSource.TryGetPosition(inputSourceId, out pos);
         pos += cam.transform.rotation * InputOffset;
         //Debug.Log(pos);

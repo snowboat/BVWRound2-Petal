@@ -54,7 +54,7 @@ public class CustomCursor :  ObjectCursor{
             hitObject = null;
             if (inputSource.TryGetPosition(sourceId, out pos))
             {
-                pos += cam.transform.rotation * HandInputControl.InputOffset;
+                pos += cam.transform.rotation * DragControl.InputOffset;
                 //Debug.Log(pos);
                 Ray inputRay = new Ray(cam.transform.position, pos - cam.transform.position);
                 RaycastHit hit;
