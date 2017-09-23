@@ -2,14 +2,15 @@
 using UnityEngine;
 
 namespace INTERACT {
-    public class Flower : MonoBehaviour {
+    public class FlowerAnim : MonoBehaviour {
         private GazeBehaviour gaze;
+        public Animator animator;
 
         private void Start() {
             gaze = GetComponent<GazeBehaviour>();
             gaze.GazeEvent += (x) => {
                 if (GameFlowManager.Instance.currState == GameState.FLOWIDLE) {
-                    GetComponent<Renderer>().material.color = new Color(1, 1, x);
+                    animator.Play("Blooming", 0, x);
                     if (x == 1) {
                         GameFlowManager.Instance.NextState();
                         // TODO
