@@ -4,7 +4,10 @@ using UnityEngine;
 
 namespace BASE {
     public enum GameState {
-
+        CALIBRATE,
+        FLOWIDLE,
+        GRASSANIM,
+        DOG
     }
 
     public class GameFlowManager : MonoBehaviour {
@@ -29,11 +32,20 @@ namespace BASE {
         }
 
         public void NextState() {
-            if (transitions.ContainsKey(currState)) {
-                currState += 1;
-                transitions[currState - 1].Invoke();
-            }
             Debug.Log(string.Format("Leaving {0}", currState));
+            if (transitions.ContainsKey(currState)) {
+                transitions[currState].Invoke();
+            }
+            currState += 1;
+        }
+
+        private void Start() {
+            Instance.Register(GameState.CALIBRATE, () => {
+                Instantiate(GameModel.Instance.flowerPrefab, new Vector3(0, GameModel.Instance.heightOffset, 2), Quaternion.identity);
+            });
+            Instance.Register(GameState.GRASSANIM, () => {
+                Instantiate(GameModel.Instance.dogPrefab, new Vector3(0, GameModel.Instance.heightOffset, -2), Quaternion.identity);
+            });
         }
     }
 }
