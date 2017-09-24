@@ -311,9 +311,10 @@ MonoBehaviour:
   petalCurvePrefab: {fileID: 1188581381851392, guid: bdd5c7d89589b264c856befb5bfbd37d,
     type: 2}
   dogPrefab: {fileID: 1496019865790394, guid: f0b4f234dd567584a94a253ae6461a52, type: 2}
-  dogPosition: {x: 0, y: 0, z: -2}
+  dogPosition: {x: 1.5, y: 0, z: -0.5}
   grassDistribution: {fileID: 1213177057163284, guid: 80b9d8fc4ab731e439a41b21d8ced343,
     type: 2}
+  heightOfFlower: {x: 0, y: 0.42, z: 0}
 --- !u!114 &1167198293
 MonoBehaviour:
   m_ObjectHideFlags: 0

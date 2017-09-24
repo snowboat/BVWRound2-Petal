@@ -10,5 +10,5 @@ public class GameModel : Singleton<GameModel> {
     public GameObject dogPrefab;
     public Vector3 dogPosition;
     public GameObject grassDistribution;
-
+    public Vector3 heightOfFlower;
 }
