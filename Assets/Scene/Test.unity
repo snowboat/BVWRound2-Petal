@@ -230,67 +230,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 800c4fd3cc9824d4d844b26a6db7f6eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &946049436
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 946049438}
-  - component: {fileID: 946049437}
-  - component: {fileID: 946049439}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &946049437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 946049436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bd22481311d3ee4ab36ac546bc929b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  heightOffset: 0
-  flowerPrefab: {fileID: 1124039662420020, guid: 47a9c166496ed1945a68506d5b38713b,
-    type: 2}
-  petalPrefab: {fileID: 1189652996542884, guid: f8b21176b62f86948976794636c3401c,
-    type: 2}
-  petalCurvePrefab: {fileID: 1188581381851392, guid: bdd5c7d89589b264c856befb5bfbd37d,
-    type: 2}
-  dogPrefab: {fileID: 1496019865790394, guid: f0b4f234dd567584a94a253ae6461a52, type: 2}
---- !u!4 &946049438
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 946049436}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.8239005, y: -2.2877798, z: 2.8381736}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &946049439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 946049436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6965a907fdd0fb04c944ed02aa8f986b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currState: 0
 --- !u!1001 &1121968985
 Prefab:
   m_ObjectHideFlags: 0
@@ -352,6 +291,67 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3a74a45dbad0019439ee55f8abfb851c, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1167198291
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1167198294}
+  - component: {fileID: 1167198293}
+  - component: {fileID: 1167198292}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1167198292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1167198291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bd22481311d3ee4ab36ac546bc929b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heightOffset: 0
+  flowerPrefab: {fileID: 1124039662420020, guid: 47a9c166496ed1945a68506d5b38713b,
+    type: 2}
+  petalPrefab: {fileID: 1684763991154318, guid: 4563e11ca42151144848f359df3c9094,
+    type: 2}
+  petalCurvePrefab: {fileID: 1188581381851392, guid: bdd5c7d89589b264c856befb5bfbd37d,
+    type: 2}
+  dogPrefab: {fileID: 1496019865790394, guid: f0b4f234dd567584a94a253ae6461a52, type: 2}
+--- !u!114 &1167198293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1167198291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6965a907fdd0fb04c944ed02aa8f986b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currState: 0
+--- !u!4 &1167198294
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1167198291}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.58447266, y: -0.07727051, z: 0.22363281}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1242468301
 GameObject:
   m_ObjectHideFlags: 0
