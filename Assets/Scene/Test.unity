@@ -339,6 +339,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currState: 0
+  positionOfFlower: {x: 0, y: 0, z: 1}
+  heightOfFlower: 0.42
+  positionOfDog: {x: 1.5, y: 0, z: -0.5}
 --- !u!4 &1167198294
 Transform:
   m_ObjectHideFlags: 0
