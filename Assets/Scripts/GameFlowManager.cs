@@ -7,6 +7,7 @@ namespace BASE {
         CALIBRATE,
         FLOWIDLE,
         GRASSANIM,
+        PETALANIM,
         DOG
     }
 
@@ -41,14 +42,17 @@ namespace BASE {
 
         private void Start() {
             Instance.Register(GameState.CALIBRATE, () => {
-                Instantiate(GameModel.Instance.flowerPrefab, new Vector3(0, GameModel.Instance.heightOffset, 2), Quaternion.identity);
+                Instantiate(GameModel.Instance.flowerPrefab, GameModel.Instance.heightOffset + GameModel.Instance.flowerPosition, Quaternion.identity);
             });
             Instance.Register(GameState.GRASSANIM, () => {
-                GameObject curve = Instantiate(GameModel.Instance.petalCurvePrefab, new Vector3(0, GameModel.Instance.heightOffset, 2), Quaternion.identity);
-                GameObject petal = Instantiate(GameModel.Instance.petalPrefab, new Vector3(0, GameModel.Instance.heightOffset, 2), Quaternion.identity);
+                GameObject curve = Instantiate(GameModel.Instance.petalCurvePrefab, GameModel.Instance.heightOffset + GameModel.Instance.flowerPosition, Quaternion.identity);
+                GameObject petal = Instantiate(GameModel.Instance.petalPrefab, GameModel.Instance.heightOffset + GameModel.Instance.flowerPosition, Quaternion.identity);
                 petal.GetComponent<SplineWalker>().spline = curve.GetComponent<BezierSpline>();
-                Instantiate(GameModel.Instance.dogPrefab, new Vector3(0, GameModel.Instance.heightOffset, -2), Quaternion.identity);
+                Instantiate(GameModel.Instance.dogPrefab, GameModel.Instance.heightOffset + GameModel.Instance.dogPosition, Quaternion.identity);
             });
+            //Instance.Register(GameState.PETALANIM, () => {
+            //});
+            Instance.Register(GameState.FLOWIDLE, () => Instantiate(GameModel.Instance.grassDistribution));
         }
     }
 }

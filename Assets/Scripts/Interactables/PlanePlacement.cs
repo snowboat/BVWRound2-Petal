@@ -6,7 +6,7 @@ namespace INTERACT {
         public Transform anchor;
 
         private void OnPlacement() {
-            GameModel.Instance.heightOffset = anchor.position.y;
+            GameModel.Instance.heightOffset.y = anchor.position.y;
             GameFlowManager.Instance.NextState();
             Destroy(gameObject);
         }

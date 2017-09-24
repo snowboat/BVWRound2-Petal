@@ -36,7 +36,9 @@ namespace BASE {
                 }
             }
             var ratio = Mathf.Lerp(0, 1f, focusTime / maxFocusTime);
-            GazeEvent.Invoke(ratio);
+            if (GazeEvent != null) {
+                GazeEvent.Invoke(ratio);
+            }
         }
 
 

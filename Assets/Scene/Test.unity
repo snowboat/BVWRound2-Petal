@@ -147,6 +147,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 20000013304850028, guid: d379ed0a5618c9f479f58bd83a2d0ad3,
+        type: 2}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d379ed0a5618c9f479f58bd83a2d0ad3, type: 2}
   m_IsPrefabParent: 0
@@ -192,28 +197,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f16e5ee07dd5f614bacd13b84d14c32f, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &768471289 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1474896498191842, guid: d379ed0a5618c9f479f58bd83a2d0ad3,
-    type: 2}
-  m_PrefabInternal: {fileID: 435411706}
---- !u!4 &768471290 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4522074708847658, guid: d379ed0a5618c9f479f58bd83a2d0ad3,
-    type: 2}
-  m_PrefabInternal: {fileID: 435411706}
---- !u!114 &768471291
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 768471289}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 660ce516b3cc3ab4f8652e941b4a273a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anchor: {fileID: 768471290}
 --- !u!1 &919704294 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1822923720134264, guid: 3a74a45dbad0019439ee55f8abfb851c,
@@ -319,14 +302,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bd22481311d3ee4ab36ac546bc929b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heightOffset: 0
+  heightOffset: {x: 0, y: 0, z: 0}
   flowerPrefab: {fileID: 1124039662420020, guid: 47a9c166496ed1945a68506d5b38713b,
     type: 2}
+  flowerPosition: {x: 0, y: 0, z: 1}
   petalPrefab: {fileID: 1684763991154318, guid: 4563e11ca42151144848f359df3c9094,
     type: 2}
   petalCurvePrefab: {fileID: 1188581381851392, guid: bdd5c7d89589b264c856befb5bfbd37d,
     type: 2}
   dogPrefab: {fileID: 1496019865790394, guid: f0b4f234dd567584a94a253ae6461a52, type: 2}
+  dogPosition: {x: 0, y: 0, z: -2}
+  grassDistribution: {fileID: 1213177057163284, guid: 80b9d8fc4ab731e439a41b21d8ced343,
+    type: 2}
 --- !u!114 &1167198293
 MonoBehaviour:
   m_ObjectHideFlags: 0
