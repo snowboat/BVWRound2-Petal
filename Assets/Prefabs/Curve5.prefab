@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1556908242307334}
+  m_IsPrefabParent: 1
+--- !u!1 &1556908242307334
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4726266965322150}
+  - component: {fileID: 114628699245021348}
+  m_Layer: 0
+  m_Name: Curve5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4726266965322150
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1556908242307334}
+  m_LocalRotation: {x: 0, y: -0.7933534, z: 0, w: 0.6087614}
+  m_LocalPosition: {x: 0, y: 0.43, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -105, z: 0}
+--- !u!114 &114628699245021348
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1556908242307334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b154883273c2845f39445c8015d81639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points:
+  - {x: 1, y: 0, z: 0}
+  - {x: 2, y: 0, z: 0}
+  - {x: 2.5408778, y: -0.07108736, z: 0}
+  - {x: 3.4150002, y: 0.54613256, z: 0}
+  - {x: 4.415001, y: 1.2685189, z: 0}
+  - {x: 3.4179447, y: 3.0447302, z: 0}
+  - {x: 2.1358962, y: 2.3523846, z: 0.00000023841858}
+  - {x: 1.4999046, y: 2.0387373, z: 0.00000023841858}
+  - {x: 1.3490086, y: 0.9507614, z: 0.00000023841858}
+  - {x: 2.3490086, y: 0.9507614, z: 0.00000023841858}
+  - {x: 3.3490086, y: 0.9507614, z: 0.00000023841858}
+  - {x: 2.6609793, y: 2.9812388, z: 0.00000023841858}
+  - {x: 3.6609793, y: 2.9812388, z: 0.00000023841858}
+  modes: 0000000000000000000000000000000000000000
+  loop: 0
