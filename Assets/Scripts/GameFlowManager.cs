@@ -21,6 +21,13 @@ namespace BASE {
         public static GameFlowManager Instance;
         private Dictionary<GameState, Action> transitions = new Dictionary<GameState, Action>();
 
+        // information of petals
+        private GameObject[] petal = new GameObject[5];
+        private int[] directionOfPetal = new int[] {-90, -80, -100, -85, -95};
+        private float[] offsetOfPetal_x = new float[] { 0f, -0.17f, 0.17f, 0f, 0f };
+        private int totalNumOfPetal = 3;
+        
+
         private void Awake() {
             if (Instance == null) {
                 Instance = this;
@@ -44,14 +51,24 @@ namespace BASE {
             }
         }
 
+        private void InitializePetal(int numOfPetal)
+        {
+            Vector3 offsetOfPetal = new Vector3(offsetOfPetal_x[numOfPetal], 0, 0);
+            GameObject curve = Instantiate(GameModel.Instance.petalCurvePrefab[numOfPetal], GameModel.Instance.heightOffset + GameModel.Instance.heightOfFlower + GameModel.Instance.flowerPosition + offsetOfPetal, Quaternion.identity);
+            curve.transform.Rotate(0, directionOfPetal[numOfPetal], 0);
+            petal[numOfPetal] = Instantiate(GameModel.Instance.petalPrefab, GameModel.Instance.heightOffset + GameModel.Instance.flowerPosition, Quaternion.identity);
+            petal[numOfPetal].GetComponent<SplineWalker>().spline = curve.GetComponent<BezierSpline>();
+        }
+
         private void Start() {
             Instance.Register(GameState.CALIBRATE, () => {
                 Instantiate(GameModel.Instance.flowerPrefab, GameModel.Instance.heightOffset + GameModel.Instance.flowerPosition, Quaternion.identity);
             });
             Instance.Register(GameState.PETALIDLE, () => {
-                GameObject curve = Instantiate(GameModel.Instance.petalCurvePrefab, GameModel.Instance.heightOffset + GameModel.Instance.heightOfFlower + GameModel.Instance.flowerPosition, Quaternion.identity);
-                GameObject petal = Instantiate(GameModel.Instance.petalPrefab, GameModel.Instance.heightOffset + GameModel.Instance.flowerPosition, Quaternion.identity);
-                petal.GetComponent<SplineWalker>().spline = curve.GetComponent<BezierSpline>();
+                for (int i=0; i<totalNumOfPetal; i++)
+                {
+                    InitializePetal(i);
+                }
                 Instantiate(GameModel.Instance.dogPrefab, GameModel.Instance.heightOffset + GameModel.Instance.dogPosition, Quaternion.identity);
                 Instantiate(GameModel.Instance.tree2Prefab, GameModel.Instance.heightOffset + GameModel.Instance.tree2Pos, Quaternion.identity);
                 Instantiate(GameModel.Instance.tree1Prefab, GameModel.Instance.heightOffset + GameModel.Instance.tree1Pos, Quaternion.identity);
