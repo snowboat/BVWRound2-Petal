@@ -5,7 +5,7 @@ using UnityEngine;
 namespace BASE {
     public class GazeBehaviour : MonoBehaviour, IFocusable {
         private bool isFocusing;
-        private float focusTime = 0;
+        public float focusTime = 0;
         public float maxFocusTime;
 
         public Action<float> GazeEvent;

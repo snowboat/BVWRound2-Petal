@@ -7,7 +7,7 @@
 	}
 
 	SubShader{
-		Tags{ "Queue" = "Transparent" "RenderType" = "Opaque" "IgnoreProject" = "True" }
+		Tags{ "RenderType" = "Opaque" }
 		Pass{
 		Tags{ "LightMode" = "ForwardBase" }
 
@@ -43,7 +43,7 @@
 		v2f vert(a2v v) {
 			v2f o;
 			float4 offset = float4(0,0,0,0);
-			float amount = sin(_TimeScale * 3.1415 * _Time.y * clamp(v.vertex.y, 0, 1));
+			float amount = sin(_TimeScale * 3.1415 * _Time.y) * clamp(v.vertex.y, 0, 1);
 			offset = _Direction * amount + _Offset;
 			o.pos = UnityObjectToClipPos(v.vertex + offset);
 			o.uv = v.texcoord.xy;
