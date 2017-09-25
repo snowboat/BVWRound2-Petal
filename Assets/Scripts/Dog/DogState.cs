@@ -32,7 +32,7 @@ namespace INTERACT {
             emission.rateOverTime = (1 + 4 * x) * 0.5f;
             if (x == 1) {
                 emission.rateOverTime = 0.5f;
-                GameFlowManager.Instance.NextState();
+                NextState();
             }
         }
 

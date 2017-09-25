@@ -53,6 +53,8 @@ namespace BASE {
                 GameObject petal = Instantiate(GameModel.Instance.petalPrefab, GameModel.Instance.heightOffset + GameModel.Instance.flowerPosition, Quaternion.identity);
                 petal.GetComponent<SplineWalker>().spline = curve.GetComponent<BezierSpline>();
                 Instantiate(GameModel.Instance.dogPrefab, GameModel.Instance.heightOffset + GameModel.Instance.dogPosition, Quaternion.identity);
+                Instantiate(GameModel.Instance.tree2Prefab, GameModel.Instance.heightOffset + GameModel.Instance.tree2Pos, Quaternion.identity);
+                Instantiate(GameModel.Instance.tree1Prefab, GameModel.Instance.heightOffset + GameModel.Instance.tree1Pos, Quaternion.identity);
                 StartCoroutine(WaitPetal());
             });
             //Instance.Register(GameState.PETALANIM, () => {

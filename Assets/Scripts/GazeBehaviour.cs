@@ -11,6 +11,7 @@ namespace BASE {
         public Action<float> GazeEvent;
 
         public void OnFocusEnter() {
+            Debug.Log("Enter");
             isFocusing = true;
         }
 
