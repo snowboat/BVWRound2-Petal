@@ -7,7 +7,8 @@ namespace INTERACT {
     public enum TREESTATE {
         IDLE,
         INTERACTABLE,
-        RUNNING
+        PETALFLY,
+        END
     }
 
 
@@ -37,11 +38,11 @@ namespace INTERACT {
         }
 
         public void NextState() {
-            Debug.Log(string.Format("Leaving {0}", currState));
-            if (transitions.ContainsKey(currState)) {
-                transitions[currState].Invoke();
-            }
             currState += 1;
+            Debug.Log(string.Format("Leaving {0}, Heading to {1} <- {2}", currState - 1, currState, this.name));
+            if (transitions.ContainsKey(currState - 1)) {
+                transitions[currState - 1].Invoke();
+            }
         }
 
         private void Start() {
@@ -54,6 +55,11 @@ namespace INTERACT {
                 gaze.GazeEvent -= Shaking;
                 gaze.focusTime = 0;
                 particle.Stop();
+                // TODO: Petals should start to fly back;
+                NextState();
+            });
+            Register(TREESTATE.PETALFLY, () => {
+                GameProgress.Instance.InteractedCount++;
             });
             GameFlowManager.Instance.Register(GameState.PETALFLY, () => NextState());
         }

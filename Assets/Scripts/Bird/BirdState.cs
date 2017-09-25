@@ -1,24 +1,28 @@
-﻿using System.Collections;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 using BASE;
 
 namespace INTERACT {
-    public enum DOGSTATE {
+    public enum BIRDSTATE {
         IDLE,
         INTERACTABLE,
-        RUNNING,
+        FLYBACK,
         END
     }
 
-    public class DogState : MonoBehaviour {
-        public DOGSTATE currState;
+    public class BirdState : MonoBehaviour {
+        public BIRDSTATE currState;
         public ParticleSystem particle;
+        public Animator animator;
         private GazeObject gaze;
-        private Dictionary<DOGSTATE, Action> transitions = new Dictionary<DOGSTATE, Action>();
+        private Dictionary<BIRDSTATE, Action> transitions = new Dictionary<BIRDSTATE, Action>();
 
-        public void Register(DOGSTATE state, Action action) {
+        [Header("Component")]
+        public GameObject standWing;
+        public GameObject flyWing;
+
+        public void Register(BIRDSTATE state, Action action) {
             if (transitions.ContainsKey(state)) {
                 transitions[state] += action;
             }
@@ -27,7 +31,7 @@ namespace INTERACT {
             }
         }
 
-        private void Waking(float x) {
+        private void Tweeting(float x) {
             //animator.Play("Blooming", 0, x);
             var emission = particle.emission;
             emission.rateOverTime = (1 + 4 * x) * 0.5f;
@@ -45,20 +49,27 @@ namespace INTERACT {
             }
         }
 
+        private void StartFly() {
+            standWing.SetActive(false);
+            flyWing.SetActive(true);
+            animator.SetTrigger("Fly");
+        }
+
         private void Start() {
             gaze = GetComponent<GazeObject>();
-            Register(DOGSTATE.IDLE, () => {
-                gaze.GazeEvent += Waking;
+            Register(BIRDSTATE.IDLE, () => {
+                gaze.GazeEvent += Tweeting;
                 particle.Play();
             });
-            Register(DOGSTATE.INTERACTABLE, () => {
-                gaze.GazeEvent -= Waking;
+            Register(BIRDSTATE.INTERACTABLE, () => {
+                gaze.GazeEvent -= Tweeting;
                 gaze.focusTime = 0;
                 particle.Stop();
-                // TODO: Dog should go back
+                StartFly();
+                // TODO: Petals should start to fly back;
                 NextState();
             });
-            Register(DOGSTATE.RUNNING, () => {
+            Register(BIRDSTATE.FLYBACK, () => {
                 GameProgress.Instance.InteractedCount++;
             });
             GameFlowManager.Instance.Register(GameState.PETALFLY, () => NextState());
