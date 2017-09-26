@@ -12,6 +12,7 @@ namespace INTERACT {
     }
 
     public class BirdState : MonoBehaviour {
+        public AudioSource birdAudio;
         public BIRDSTATE currState;
         public ParticleSystem particle;
         public Animator animator;
@@ -32,10 +33,18 @@ namespace INTERACT {
         }
 
         private void Tweeting(float x) {
+            if (gaze.isFocusing && !birdAudio.isPlaying) {
+                birdAudio.Play();
+            }
+            if (!gaze.isFocusing && birdAudio.isPlaying) {
+                birdAudio.Stop();
+            }
+
             //animator.Play("Blooming", 0, x);
             var emission = particle.emission;
             emission.rateOverTime = (1 + 4 * x) * 0.5f;
             if (x == 1) {
+                birdAudio.Stop();
                 emission.rateOverTime = 0.5f;
                 NextState();
             }

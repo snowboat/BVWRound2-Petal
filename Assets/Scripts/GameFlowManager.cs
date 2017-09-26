@@ -77,10 +77,13 @@ namespace BASE {
             //Instance.Register(GameState.PETALANIM, () => {
             //});
             Instance.Register(GameState.FLOWIDLE, () => Instantiate(GameModel.Instance.grassDistribution));
+            Instance.Register(GameState.MAIN, () => {
+                Instantiate(GameModel.Instance.flowerDistribution);
+            });
         }
 
         private IEnumerator WaitPetal() {
-            yield return new WaitForSeconds(10f);
+            yield return new WaitForSeconds(18f);
             Instance.NextState();
         }
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace BASE {
     public class GazeBehaviour : MonoBehaviour, IFocusable {
-        private bool isFocusing;
+        public bool isFocusing;
         public float focusTime = 0;
         public float maxFocusTime;
 

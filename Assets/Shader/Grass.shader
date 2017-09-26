@@ -1,13 +1,13 @@
 ﻿Shader "Custom/Grass" {
 	Properties{
-		_MainTex("Grass Texture", 2D) = "white" {}
+		_MainTex("Grass Texture", Color) = (0, 0, 0, 0)
 		_TimeScale("Time Scale", float) = 0.2
 		_Offset("Wave Offset", Vector) = (0, 0, 0, 0)
 		_Direction("Wind Direction", Vector) = (0, 0, 0, 0)
 	}
 
 	SubShader{
-		Tags{ "RenderType" = "Opaque" }
+		Tags{ "RenderType" = "Opaque" "DisableBatching" = "true"  }
 		Pass{
 		Tags{ "LightMode" = "ForwardBase" }
 
@@ -21,7 +21,7 @@
 #include "UnityCG.cginc" 
 #include "Lighting.cginc"
 
-		sampler2D _MainTex;
+		float4 _MainTex;
 		half _TimeScale;
 		float4 _Direction;
 		float4 _Offset;
@@ -55,7 +55,7 @@
 		fixed4 frag(v2f i) : SV_Target {
 			fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz;
 			fixed3 worldLight = normalize(UnityWorldSpaceLightDir(i.worldPos));
-			fixed3 albedo = tex2D(_MainTex, i.uv).rgb;
+			fixed3 albedo = _MainTex.rgb;
 			fixed3 normal = normalize(i.normal);
 			fixed3 diffuse = _LightColor0.rgb * albedo.rgb * saturate(dot(normal, worldLight));
 			fixed3 color = ambient + diffuse;

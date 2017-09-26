@@ -11,8 +11,8 @@ namespace INTERACT {
         END
     }
 
-
     public class TreeState : MonoBehaviour {
+        public AudioSource audioSource;
         public TREESTATE currState;
         public ParticleSystem particle;
         private GazeObject gaze;
@@ -28,11 +28,18 @@ namespace INTERACT {
         }
 
         private void Shaking(float x) {
+            if (gaze.isFocusing && !audioSource.isPlaying) {
+                audioSource.Play();
+            }
+            if (!gaze.isFocusing && audioSource.isPlaying) {
+                audioSource.Stop();
+            }
             //animator.Play("Blooming", 0, x);
             var emission = particle.emission;
             emission.rateOverTime = (1 + 4 * x) * 0.5f;
             if (x == 1) {
                 emission.rateOverTime = 0.5f;
+                audioSource.Stop();
                 NextState();
             }
         }

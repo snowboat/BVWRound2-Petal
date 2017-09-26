@@ -10,6 +10,7 @@ public class GameModel : Singleton<GameModel> {
     public GameObject dogPrefab;
     public Vector3 dogPosition;
     public GameObject grassDistribution;
+    public GameObject flowerDistribution;
     public Vector3 heightOfFlower;
     public GameObject tree1Prefab;
     public Vector3 tree1Pos;

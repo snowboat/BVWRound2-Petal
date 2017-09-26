@@ -6,6 +6,7 @@ using BASE;
 
 namespace INTERACT {
     public class Distribution : MonoBehaviour {
+        public AudioSource grassAudio;
         public GameObject grass;
         public int MaxNumber;
         public float maxTimeInterval;
@@ -18,6 +19,7 @@ namespace INTERACT {
         private List<Vector2> positions = new List<Vector2>();
 
         private void Start() {
+            grassAudio.Play();
             for (int i = 0; i < MaxNumber; i++) {
                 float radius = Mathf.Sqrt((float)rnd.NextDouble()) * maxRadius;
                 distance.Add(radius);
