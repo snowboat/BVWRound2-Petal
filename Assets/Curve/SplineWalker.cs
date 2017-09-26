@@ -15,6 +15,8 @@ public class SplineWalker : MonoBehaviour {
 
     private bool move = false;
 
+    public Vector3 rotationAdjustment = new Vector3(0, 0, 0);
+
 	private void Update () {
         if (move)
         {
@@ -65,6 +67,7 @@ public class SplineWalker : MonoBehaviour {
             if (lookForward)
             {
                 transform.LookAt(position + spline.GetDirection(progress));
+                transform.Rotate(rotationAdjustment);
             }
         }
 	}

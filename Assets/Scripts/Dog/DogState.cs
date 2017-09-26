@@ -67,6 +67,7 @@ namespace INTERACT {
         {
             GameFlowManager.Instance.GetPetal(1).GetComponent<SplineWalker>().SetGoingForward(false);
             yield return new WaitForSeconds(18.0f);
+            GameFlowManager.Instance.GetPetal(1).SetActive(false);
             NextState();
         }
     }
