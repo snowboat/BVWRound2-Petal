@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System;
+using System.Collections;
 using UnityEngine;
 using BASE;
 
@@ -63,12 +64,19 @@ namespace INTERACT {
                 gaze.focusTime = 0;
                 particle.Stop();
                 // TODO: Petals should start to fly back;
-                NextState();
+                StartCoroutine(PetalFlyCoroutine());
             });
             Register(TREESTATE.PETALFLY, () => {
                 GameProgress.Instance.InteractedCount++;
             });
             GameFlowManager.Instance.Register(GameState.PETALFLY, () => NextState());
+        }
+
+        private IEnumerator PetalFlyCoroutine()
+        {
+            GameFlowManager.Instance.GetPetal(2).GetComponent<SplineWalker>().SetGoingForward(false);
+            yield return new WaitForSeconds(18.0f);
+            NextState();
         }
     }
 }

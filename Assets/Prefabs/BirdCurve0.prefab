@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1617661188205188}
+  m_IsPrefabParent: 1
+--- !u!1 &1617661188205188
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4302154818133362}
+  - component: {fileID: 114707628226360828}
+  m_Layer: 0
+  m_Name: BirdCurve0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4302154818133362
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1617661188205188}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.655, y: 0.823, z: 1.686}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114707628226360828
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1617661188205188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b154883273c2845f39445c8015d81639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points:
+  - {x: 1, y: 0, z: 0}
+  - {x: 1.0034032, y: 0, z: -0.6241567}
+  - {x: 1.8665318, y: -0.07954574, z: -0.91329885}
+  - {x: 2.3014865, y: -0.20076275, z: -0.79726696}
+  - {x: 3.3491015, y: -0.46858978, z: -0.46903396}
+  - {x: 3.1356945, y: -0.43858325, z: 0.6834625}
+  - {x: 2.5837376, y: -0.54459345, z: 0.9075893}
+  - {x: 1.8566345, y: -0.6853111, z: 1.1924809}
+  - {x: 1.2245332, y: -0.66206306, z: 1.2218078}
+  - {x: 1.1297, y: -0.823, z: 0.26801}
+  modes: 00000000000000000000000000000000
+  loop: 0

@@ -55,13 +55,19 @@ namespace INTERACT {
                 gaze.GazeEvent -= Waking;
                 gaze.focusTime = 0;
                 particle.Stop();
-                // TODO: Dog should go back
-                NextState();
+                StartCoroutine(PetalFlyCoroutine());
             });
             Register(DOGSTATE.RUNNING, () => {
                 GameProgress.Instance.InteractedCount++;
             });
             GameFlowManager.Instance.Register(GameState.PETALFLY, () => NextState());
+        }
+
+        private IEnumerator PetalFlyCoroutine()
+        {
+            GameFlowManager.Instance.GetPetal(1).GetComponent<SplineWalker>().SetGoingForward(false);
+            yield return new WaitForSeconds(18.0f);
+            NextState();
         }
     }
 }
