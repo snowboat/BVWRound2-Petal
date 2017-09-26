@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using BASE;
@@ -19,8 +20,10 @@ namespace INTERACT {
         private Dictionary<BIRDSTATE, Action> transitions = new Dictionary<BIRDSTATE, Action>();
 
         [Header("Component")]
+        public GameObject bird;
         public GameObject standWing;
         public GameObject flyWing;
+        public GameObject birdCurve;
 
         public void Register(BIRDSTATE state, Action action) {
             if (transitions.ContainsKey(state)) {
@@ -53,6 +56,7 @@ namespace INTERACT {
             standWing.SetActive(false);
             flyWing.SetActive(true);
             animator.SetTrigger("Fly");
+            StartCoroutine(FlyCoroutine());
         }
 
         private void Start() {
@@ -67,12 +71,32 @@ namespace INTERACT {
                 particle.Stop();
                 StartFly();
                 // TODO: Petals should start to fly back;
-                NextState();
+             
             });
             Register(BIRDSTATE.FLYBACK, () => {
                 GameProgress.Instance.InteractedCount++;
             });
             GameFlowManager.Instance.Register(GameState.PETALFLY, () => NextState());
+        }
+
+        private IEnumerator FlyCoroutine()
+        {
+            // Fly to the petal
+            Vector3 offset = new Vector3(-0.9f, 0f, 0f);
+            GameObject curve = Instantiate(birdCurve, bird.transform.position + offset, Quaternion.identity);
+            curve.transform.parent = transform;
+            // curve.transform.Rotate(0, directionOfPetal[numOfPetal], 0);
+            bird.GetComponent<SplineWalker>().spline = curve.GetComponent<BezierSpline>();
+            bird.GetComponent<SplineWalker>().SetMove(true);
+            yield return new WaitForSeconds(6.0f);
+            // Pick the petal #TODO
+            // GameFlowManager.Instance.GetPetal(0).transform.position = new Vector3(0f, 0f, 0f); 
+            // GameFlowManager.Instance.GetPetal(0).transform.parent = bird.transform;
+            // Fly to the flower #TODO
+            GameFlowManager.Instance.GetPetal(0).GetComponent<SplineWalker>().SetGoingForward(false);
+            yield return new WaitForSeconds(18.0f);
+            NextState();
+            // Fly away #TODO
         }
     }
 }

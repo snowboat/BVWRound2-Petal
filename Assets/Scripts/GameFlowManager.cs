@@ -58,6 +58,7 @@ namespace BASE {
             curve.transform.Rotate(0, directionOfPetal[numOfPetal], 0);
             petal[numOfPetal] = Instantiate(GameModel.Instance.petalPrefab, GameModel.Instance.heightOffset + GameModel.Instance.flowerPosition, Quaternion.identity);
             petal[numOfPetal].GetComponent<SplineWalker>().spline = curve.GetComponent<BezierSpline>();
+            petal[numOfPetal].GetComponent<SplineWalker>().SetMove(true);
         }
 
         private void Start() {
@@ -82,6 +83,11 @@ namespace BASE {
         private IEnumerator WaitPetal() {
             yield return new WaitForSeconds(10f);
             Instance.NextState();
+        }
+
+        public GameObject GetPetal(int numOfPetal)
+        {
+            return petal[numOfPetal];
         }
     }
 }
