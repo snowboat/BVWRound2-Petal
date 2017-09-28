@@ -1462,7 +1462,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1057411927842512}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1487,7 +1487,7 @@ Transform:
   - {fileID: 4442406102317934}
   m_Father: {fileID: 4240589951925406}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &4771472418791986
 Transform:
   m_ObjectHideFlags: 1
@@ -1948,6 +1948,10 @@ MonoBehaviour:
   petalAudio: {fileID: 82195712328653992}
   animator: {fileID: 95716890565783456}
   particle: {fileID: 198589937810194770}
+  petals:
+  - {fileID: 1042487292280516}
+  - {fileID: 1609105042556746}
+  - {fileID: 1042309513906328}
 --- !u!137 &137093998649760164
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

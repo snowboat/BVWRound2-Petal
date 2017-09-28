@@ -96,6 +96,7 @@ namespace INTERACT {
             curve.transform.parent = transform;
             // curve.transform.Rotate(0, directionOfPetal[numOfPetal], 0);
             bird.GetComponent<SplineWalker>().spline = curve.GetComponent<BezierSpline>();
+            bird.GetComponent<SplineWalker>().rotationAdjustment = new Vector3(0, -90, 0);
             bird.GetComponent<SplineWalker>().SetMove(true);
             yield return new WaitForSeconds(6.0f);
             // Pick the petal #TODO
@@ -104,6 +105,7 @@ namespace INTERACT {
             // Fly to the flower #TODO
             GameFlowManager.Instance.GetPetal(0).GetComponent<SplineWalker>().SetGoingForward(false);
             yield return new WaitForSeconds(18.0f);
+            GameFlowManager.Instance.GetPetal(0).SetActive(false);
             NextState();
             // Fly away #TODO
         }

@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4417304437785330}
   - component: {fileID: 114805017838442586}
   - component: {fileID: 82834490634236668}
+  - component: {fileID: 114437065908769068}
   m_Layer: 0
   m_Name: GrassDistribution
   m_TagString: Untagged
@@ -50,7 +51,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ada5e13ac3c1b6741ac6857eac42de2e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: be95673d5ff68d548b1e6e14167d54ff, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -121,13 +122,30 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &114805017838442586
+--- !u!114 &114437065908769068
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1213177057163284}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c381a114f3761b41b90cf2c3676d8a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grassAudio: {fileID: 82834490634236668}
+  MaxNumber: 5000
+  maxTimeInterval: 0.15
+  minTimeInterval: 0.05
+  maxRadius: 5
+  mat: {fileID: 2100000, guid: 87f042a9770405c4697419e5b53c7c83, type: 2}
+--- !u!114 &114805017838442586
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1213177057163284}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b694342800b172c4791b6ddba3f92f4a, type: 3}
   m_Name: 

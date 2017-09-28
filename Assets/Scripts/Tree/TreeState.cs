@@ -13,6 +13,7 @@ namespace INTERACT {
     }
 
     public class TreeState : MonoBehaviour {
+        public Animator animator;
         public AudioSource audioSource;
         public TREESTATE currState;
         public ParticleSystem particle;
@@ -35,7 +36,7 @@ namespace INTERACT {
             if (!gaze.isFocusing && audioSource.isPlaying) {
                 audioSource.Stop();
             }
-            //animator.Play("Blooming", 0, x);
+            animator.Play("Shake", 0, x);
             var emission = particle.emission;
             emission.rateOverTime = (1 + 4 * x) * 0.5f;
             if (x == 1) {
@@ -57,9 +58,11 @@ namespace INTERACT {
             gaze = GetComponent<GazeObject>();
             Register(TREESTATE.IDLE, () => {
                 gaze.GazeEvent += Shaking;
+                animator.SetTrigger("Shake");
                 particle.Play();
             });
             Register(TREESTATE.INTERACTABLE, () => {
+                animator.SetTrigger("StopShake");
                 gaze.GazeEvent -= Shaking;
                 gaze.focusTime = 0;
                 particle.Stop();
@@ -76,6 +79,7 @@ namespace INTERACT {
         {
             GameFlowManager.Instance.GetPetal(2).GetComponent<SplineWalker>().SetGoingForward(false);
             yield return new WaitForSeconds(18.0f);
+            GameFlowManager.Instance.GetPetal(2).SetActive(false);
             NextState();
         }
     }

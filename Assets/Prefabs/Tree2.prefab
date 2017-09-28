@@ -872,7 +872,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1554156481844638}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0.284, y: 0.8297, z: 0.223}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
@@ -886,7 +886,7 @@ Transform:
   - {fileID: 4983958202586702}
   m_Father: {fileID: 4531698659196526}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &4572866253239668
 Transform:
   m_ObjectHideFlags: 1
@@ -1445,6 +1445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aac63cd15cf2c948a94c9a3e25673f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   audioSource: {fileID: 0}
   currState: 0
   particle: {fileID: 0}
@@ -1480,7 +1481,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFocusing: 0
   focusTime: 0
-  maxFocusTime: 4
+  maxFocusTime: 2
 --- !u!114 &114726203306315874
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1494,8 +1495,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spline: {fileID: 0}
   duration: 6
-  lookForward: 0
+  lookForward: 1
   mode: 0
+  rotationAdjustment: {x: 0, y: 0, z: 0}
 --- !u!114 &114763029232447524
 MonoBehaviour:
   m_ObjectHideFlags: 1

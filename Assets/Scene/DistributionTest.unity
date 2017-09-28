@@ -166,13 +166,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 189542889}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.9101887, y: -0.086647205, z: 0.24388428, w: 0.32337192}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 140.882, y: -30, z: 0}
 --- !u!1 &984344907
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,6 +185,7 @@ GameObject:
   - component: {fileID: 984344909}
   - component: {fileID: 984344908}
   - component: {fileID: 984344912}
+  - component: {fileID: 984344913}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -264,16 +265,37 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 984344907}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b694342800b172c4791b6ddba3f92f4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grassAudio: {fileID: 0}
   grass: {fileID: 1367373205138646, guid: a12cfdf5ebea4c846a78f77d4616a04a, type: 2}
   MaxNumber: 750
-  timeInterval: 0.05
-  maxTimeInterval: 0.1
-  minTimeInterval: 0
+  maxTimeInterval: 0.5
+  minTimeInterval: 0.05
+  maxRadius: 0
+  scaleFactor: 0
+--- !u!114 &984344913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 984344907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c381a114f3761b41b90cf2c3676d8a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grassAudio: {fileID: 0}
+  grass: {fileID: 0}
+  MaxNumber: 5000
+  maxTimeInterval: 0.5
+  minTimeInterval: 0.05
+  maxRadius: 5
+  scaleFactor: 1
+  mat: {fileID: 2100000, guid: 87f042a9770405c4697419e5b53c7c83, type: 2}
 --- !u!1 &1456402842
 GameObject:
   m_ObjectHideFlags: 0

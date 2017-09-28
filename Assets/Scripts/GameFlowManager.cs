@@ -78,7 +78,7 @@ namespace BASE {
             //Instance.Register(GameState.PETALANIM, () => {
             //});
             Instance.Register(GameState.FLOWIDLE, () => Instantiate(GameModel.Instance.grassDistribution));
-            Instance.Register(GameState.MAIN, () => {
+            Instance.Register(GameState.FINISHFLY, () => {
                 Instantiate(GameModel.Instance.flowerDistribution);
             });
         }
