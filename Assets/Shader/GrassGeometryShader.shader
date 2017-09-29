@@ -89,7 +89,7 @@
 			float random = sin( 10 * UNITY_HALF_PI * frac(root.x) + 10 * UNITY_HALF_PI * frac(root.z)) + 1;
 
 
-			_Width = _Width + (random / 50);
+			_Width = _Width;
 			_Height = _Height * (1 + 2 * random);
 
 

@@ -18,10 +18,6 @@ namespace INTERACT {
         private void Update() {
             anchor.rotation = Quaternion.identity;
         }
-
-        private void OnDestroy() {
-            ClickManager.Instance.InputDownEvent -= OnPlacement;
-        }
     }
 }
 
