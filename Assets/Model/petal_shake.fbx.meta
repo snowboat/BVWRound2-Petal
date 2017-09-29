@@ -32,8 +32,8 @@ ModelImporter:
     400022: //RootNode
     400024: planarTrimmedSurface1
     4300000: nurbsToPoly1
-    7400000: Take 001
-    7400002: Take 001 (1)
+    7400000: Horizontal
+    7400002: Vertical
     9500000: //RootNode
     13700000: nurbsToPoly1
   materials:
@@ -61,7 +61,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Take 001
+      name: Horizontal
       takeName: Take 001
       firstFrame: 0
       lastFrame: 48
@@ -89,7 +89,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Take 001 (1)
+      name: Vertical
       takeName: Take 001
       firstFrame: 48
       lastFrame: 108
@@ -99,8 +99,8 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
+      loopTime: 1
+      loopBlend: 1
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0

@@ -24,6 +24,7 @@ namespace INTERACT {
             gaze.GazeEvent -= GazeEvent;
             glow.Stop();
             var p = petal.Spawn();
+            GameModel.Instance.petal = p;
             var walker = p.GetComponent<SplineWalker>();
             walker.spline = GameModel.Instance.petalCurvePrefab[0].GetComponent<BezierSpline>();
             walker.SetMove(true);

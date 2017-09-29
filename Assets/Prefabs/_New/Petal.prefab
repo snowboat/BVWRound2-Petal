@@ -493,7 +493,7 @@ Animator:
   m_GameObject: {fileID: 1943843111898472}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 0c3410f4cd8e5d04cb24b37170527c1d, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 39228c76e15eebc4fabe65800bcc3a85, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -531,7 +531,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   glow: {fileID: 198496539093332838}
   trail: {fileID: 198258890176948966}
-  anim: {fileID: 0}
+  anim: {fileID: 95322432939659846}
 --- !u!114 &114935508692096930
 MonoBehaviour:
   m_ObjectHideFlags: 1

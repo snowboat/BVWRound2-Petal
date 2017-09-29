@@ -14,10 +14,16 @@ namespace BASE {
 
         public void OnFocusEnter() {
             isFocusing = true;
+            if (GazeEnterEvent != null) {
+                GazeEnterEvent.Invoke();
+            }
         }
 
         public void OnFocusExit() {
             isFocusing = false;
+            if (GazeExitEvent != null) {
+                GazeExitEvent.Invoke();
+            }
         }
 
         private void Update() {

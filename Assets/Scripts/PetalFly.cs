@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using BASE;
+using System;
 
 namespace INTERACT {
     public class PetalFly : MonoBehaviour {
@@ -10,6 +11,8 @@ namespace INTERACT {
         public ParticleSystem glow;
         public ParticleSystem trail;
         public Animator anim;
+
+        public Action FlyEvent;
 
         private void ResetInteractable() {
             currState = ObjectState.INTERATABLE;
@@ -48,11 +51,17 @@ namespace INTERACT {
             gaze.GazeExitEvent -= GazeExit;
             gaze.focusTime = 0f;
 
+            if (FlyEvent != null) {
+                FlyEvent.Invoke();
+            }
+
+            anim.SetTrigger("Fly");
             currState = ObjectState.INTERATED;
             glow.Stop();
             walker.SetMove(true);
             walker.onFinish += () => {
                 walker.onFinish = null;
+                anim.SetTrigger("Still");
                 GameFlowManager.Instance.NextState();
             };
             glow.Stop();

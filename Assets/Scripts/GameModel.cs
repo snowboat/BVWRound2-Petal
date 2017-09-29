@@ -32,6 +32,7 @@ namespace BASE {
 
         [Header("New")]
         public SpawnObject[] spawnings;
+        public GameObject petal;
         //public Vector3 dyingFlowerPos;
         //public GameObject dyingFlower;
         //public Vector3 cocoonPos;

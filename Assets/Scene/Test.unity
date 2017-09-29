@@ -615,7 +615,7 @@ MonoBehaviour:
   - obj: {fileID: 1189019348260658, guid: 45b0dad9c33675d4ca9db477e7fd31f9, type: 2}
     pos: {x: -2, y: 0, z: 2.5}
     rotation: {x: 0, y: 0, z: 0}
-  - obj: {fileID: 1189019348260658, guid: 45b0dad9c33675d4ca9db477e7fd31f9, type: 2}
+  - obj: {fileID: 1476674616242680, guid: 6decea332038f714aa49269605edcec2, type: 2}
     pos: {x: 1, y: 0, z: 3}
     rotation: {x: 0, y: 0, z: 0}
   - obj: {fileID: 1189019348260658, guid: 45b0dad9c33675d4ca9db477e7fd31f9, type: 2}
@@ -624,9 +624,10 @@ MonoBehaviour:
   - obj: {fileID: 1113389521500756, guid: b33d98a6087020d46b985b3256671bae, type: 2}
     pos: {x: 3.5, y: 0, z: -2}
     rotation: {x: 0, y: -90, z: 0}
-  - obj: {fileID: 1189019348260658, guid: 45b0dad9c33675d4ca9db477e7fd31f9, type: 2}
+  - obj: {fileID: 1819696612091718, guid: 34be4d8ef3d9ee342ab5e9a0370f85c9, type: 2}
     pos: {x: -2.5, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0}
+  petal: {fileID: 0}
 --- !u!114 &1167198293
 MonoBehaviour:
   m_ObjectHideFlags: 0
