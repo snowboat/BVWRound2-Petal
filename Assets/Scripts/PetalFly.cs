@@ -17,7 +17,7 @@ namespace INTERACT {
         private void ResetInteractable() {
             currState = ObjectState.INTERATABLE;
             walker.SetMove(false);
-            walker.spline = GameModel.Instance.petalCurvePrefab[1].GetComponent<BezierSpline>();
+            walker.spline = GameModel.Instance.petalCurvePrefab[(int)GameFlowManager.Instance.currState - 1].GetComponent<BezierSpline>();
             walker.progress = 0;
             glow.Play();
             trail.Stop();
