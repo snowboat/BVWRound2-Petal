@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 
 public class SplineWalker : MonoBehaviour {
 
@@ -10,12 +11,14 @@ public class SplineWalker : MonoBehaviour {
 
 	public SplineWalkerMode mode;
 
-	private float progress;
+	public float progress;
 	private bool goingForward = true;
 
     private bool move = false;
 
     public Vector3 rotationAdjustment = new Vector3(0, 0, 0);
+
+    public Action onFinish;
 
 	private void Update () {
         if (move)
@@ -28,6 +31,9 @@ public class SplineWalker : MonoBehaviour {
                     if (mode == SplineWalkerMode.Once)
                     {
                         progress = 1f;
+                        if (onFinish != null) {
+                            onFinish.Invoke();
+                        }
                     }
                     else if (mode == SplineWalkerMode.Loop)
                     {

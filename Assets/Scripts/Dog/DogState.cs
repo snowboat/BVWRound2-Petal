@@ -60,7 +60,7 @@ namespace INTERACT {
             Register(DOGSTATE.RUNNING, () => {
                 GameProgress.Instance.InteractedCount++;
             });
-            GameFlowManager.Instance.Register(GameState.PETALFLY, () => NextState());
+            //GameFlowManager.Instance.Register(GameState.PETALFLY, () => NextState());
         }
 
         private IEnumerator PetalFlyCoroutine()

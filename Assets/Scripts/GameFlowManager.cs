@@ -4,15 +4,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace BASE {
+    public enum ObjectState {
+        INTERATABLE,
+        INTERATING,
+        INTERATED
+    }
+
     public enum GameState {
         CALIBRATE,
-        FLOWIDLE,
-        GRASSANIM,
-        PETALIDLE,
-        PETALFLY,
-        MAIN,
-        FINISHFLY,
-        FINISHBLOOM
+        IDLE,
+        COCOON,
+        FRUIT,
+        BIRD,
+        DOG,
+        PINWHEEL,
+        ENDING
     }
 
     public class GameFlowManager : MonoBehaviour {
@@ -63,24 +69,31 @@ namespace BASE {
 
         private void Start() {
             Instance.Register(GameState.CALIBRATE, () => {
-                Instantiate(GameModel.Instance.flowerPrefab, GameModel.Instance.heightOffset + GameModel.Instance.flowerPosition, Quaternion.identity);
-            });
-            Instance.Register(GameState.PETALIDLE, () => {
-                for (int i=0; i<totalNumOfPetal; i++)
-                {
-                    InitializePetal(i);
+                //Instantiate(GameModel.Instance.flowerPrefab, GameModel.Instance.heightOffset + GameModel.Instance.flowerPosition, Quaternion.identity);
+                foreach (var spawn in GameModel.Instance.spawnings) {
+                    spawn.Spawn();
+                    //Instantiate(spawn.obj, spawn.pos, Quaternion.Euler(spawn.rotation));
                 }
-                Instantiate(GameModel.Instance.dogPrefab, GameModel.Instance.heightOffset + GameModel.Instance.dogPosition, Quaternion.identity);
-                Instantiate(GameModel.Instance.tree2Prefab, GameModel.Instance.heightOffset + GameModel.Instance.tree2Pos, Quaternion.identity);
-                Instantiate(GameModel.Instance.tree1Prefab, GameModel.Instance.heightOffset + GameModel.Instance.tree1Pos, Quaternion.identity);
-                StartCoroutine(WaitPetal());
             });
+            Instance.Register(GameState.PINWHEEL, () => {
+                Instantiate(GameModel.Instance.flowerPrefab, GameModel.Instance.flowerPosition + GameModel.Instance.heightOffset, Quaternion.identity);
+            });
+            //Instance.Register(GameState.PETALIDLE, () => {
+            //    for (int i=0; i<totalNumOfPetal; i++)
+            //    {
+            //        InitializePetal(i);
+            //    }
+            //    Instantiate(GameModel.Instance.dogPrefab, GameModel.Instance.heightOffset + GameModel.Instance.dogPosition, Quaternion.identity);
+            //    Instantiate(GameModel.Instance.tree2Prefab, GameModel.Instance.heightOffset + GameModel.Instance.tree2Pos, Quaternion.identity);
+            //    Instantiate(GameModel.Instance.tree1Prefab, GameModel.Instance.heightOffset + GameModel.Instance.tree1Pos, Quaternion.identity);
+            //    StartCoroutine(WaitPetal());
+            //});
             //Instance.Register(GameState.PETALANIM, () => {
             //});
-            Instance.Register(GameState.FLOWIDLE, () => Instantiate(GameModel.Instance.grassDistribution));
-            Instance.Register(GameState.FINISHFLY, () => {
-                Instantiate(GameModel.Instance.flowerDistribution);
-            });
+            //Instance.Register(GameState.FLOWIDLE, () => Instantiate(GameModel.Instance.grassDistribution));
+            //Instance.Register(GameState.FINISHFLY, () => {
+            //    Instantiate(GameModel.Instance.flowerDistribution);
+            //});
         }
 
         private IEnumerator WaitPetal() {

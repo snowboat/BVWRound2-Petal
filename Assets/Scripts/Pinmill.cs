@@ -61,7 +61,7 @@ namespace INTERACT {
                 gaze.focusTime = 0;
                 particle.Stop();
             });
-            GameFlowManager.Instance.Register(GameState.PETALFLY, () => NextState());
+            //GameFlowManager.Instance.Register(GameState.PETALFLY, () => NextState());
         }
 
         private IEnumerator Rotate() {

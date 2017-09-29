@@ -85,7 +85,7 @@ namespace INTERACT {
             Register(BIRDSTATE.FLYBACK, () => {
                 GameProgress.Instance.InteractedCount++;
             });
-            GameFlowManager.Instance.Register(GameState.PETALFLY, () => NextState());
+            //GameFlowManager.Instance.Register(GameState.PETALFLY, () => NextState());
         }
 
         private IEnumerator FlyCoroutine()

@@ -9,6 +9,8 @@ namespace BASE {
         public float maxFocusTime;
 
         public Action<float> GazeEvent;
+        public Action GazeEnterEvent;
+        public Action GazeExitEvent;
 
         public void OnFocusEnter() {
             isFocusing = true;

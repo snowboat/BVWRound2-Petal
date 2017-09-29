@@ -25,68 +25,49 @@ namespace INTERACT {
             emission.rateOverTime = (1 + 3 * x) * 0.5f;
             if (x == 1) {
                 emission.rateOverTime = 0.5f;
-                GameFlowManager.Instance.NextState();
+                gaze.GazeEvent -= Blooming;
+                particle.Stop();
+                flowerAudio.Stop();
+                gaze.focusTime = 0;
+                Instantiate(GameModel.Instance.grassDistribution);
+                Instantiate(GameModel.Instance.flowerDistribution);
             }
         }
 
-        private void PetalFly(float x) {
-            if (x > 0.2f) {
-                petalAudio.Play();
-                GameFlowManager.Instance.NextState();
-            }
-        }
-
-        private void FlowerExplosion(float x) {
-            if (x > 0.3f) {
-                GameFlowManager.Instance.NextState();
-            }
-        }
-
-        private IEnumerator CheckPetal() {
-            while (true) {
-                for (int i = 0; i < GameProgress.Instance.InteractedCount; i++) {
-                    petals[i].SetActive(true);
-                }
-                if (GameProgress.Instance.InteractedCount == 3) {
-                    break;
-                }
-                yield return null;
-            }
-        }
 
         private void Start() {
             gaze = GetComponent<GazeBehaviour>();
             gaze.GazeEvent += Blooming;
             particle.Play();
-            GameFlowManager.Instance.Register(GameState.FLOWIDLE, () => {
-                gaze.GazeEvent -= Blooming;
-                particle.Stop();
-                flowerAudio.Stop();
-                gaze.focusTime = 0;
-            });
-            GameFlowManager.Instance.Register(GameState.GRASSANIM, () => {
-                gaze.GazeEvent += PetalFly;
-                particle.Play();
-            });
-            GameFlowManager.Instance.Register(GameState.PETALIDLE, () => {
-                for (int i = 0; i < petals.Length; i++) {
-                    petals[i].SetActive(false);
-                }
-                gaze.GazeEvent -= PetalFly;
-                particle.Stop();
-                StartCoroutine(CheckPetal());
-                gaze.focusTime = 0;
-            });
+            //GameFlowManager.Instance.Register(GameState.FLOWIDLE, () => {
+            //    gaze.GazeEvent -= Blooming;
+            //    particle.Stop();
+            //    flowerAudio.Stop();
+            //    gaze.focusTime = 0;
+            //});
+            //GameFlowManager.Instance.Register(GameState.GRASSANIM, () => {
+            //    gaze.GazeEvent += PetalFly;
+            //    particle.Play();
+            //});
+            //GameFlowManager.Instance.Register(GameState.PETALIDLE, () => {
+            //    for (int i = 0; i < petals.Length; i++) {
+            //        petals[i].SetActive(false);
+            //    }
+            //    gaze.GazeEvent -= PetalFly;
+            //    particle.Stop();
+            //    StartCoroutine(CheckPetal());
+            //    gaze.focusTime = 0;
+            //});
 
-            GameFlowManager.Instance.Register(GameState.MAIN, () => {
-                gaze.GazeEvent += FlowerExplosion;
-                particle.Play();
-            });
-            GameFlowManager.Instance.Register(GameState.FINISHFLY, () => {
-                gaze.GazeEvent -= FlowerExplosion;
-                particle.Stop();
-                gaze.focusTime = 0;
-            });
+            //GameFlowManager.Instance.Register(GameState.MAIN, () => {
+            //    gaze.GazeEvent += FlowerExplosion;
+            //    particle.Play();
+            //});
+            //GameFlowManager.Instance.Register(GameState.FINISHFLY, () => {
+            //    gaze.GazeEvent -= FlowerExplosion;
+            //    particle.Stop();
+            //    gaze.focusTime = 0;
+            //});
         }
     }
 }
