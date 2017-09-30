@@ -20,6 +20,7 @@ namespace BASE {
         public Vector3 flowerPosition;
         public GameObject petalPrefab;
         public GameObject[] petalCurvePrefab;
+        public float[] flyingDuration;
         public GameObject dogPrefab;
         public Vector3 dogPosition;
         public GameObject grassDistribution;
@@ -29,6 +30,7 @@ namespace BASE {
         public Vector3 tree1Pos;
         public GameObject tree2Prefab;
         public Vector3 tree2Pos;
+        
 
         [Header("New")]
         public SpawnObject[] spawnings;

@@ -27,6 +27,7 @@ namespace INTERACT {
             GameModel.Instance.petal = p;
             var walker = p.GetComponent<SplineWalker>();
             walker.spline = GameModel.Instance.petalCurvePrefab[0].GetComponent<BezierSpline>();
+            walker.duration = GameModel.Instance.flyingDuration[0];
             walker.SetMove(true);
             walker.onFinish += () => {
                 walker.onFinish = null;

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System;
+using BASE;
 
 public class SplineWalker : MonoBehaviour {
 
@@ -67,7 +68,7 @@ public class SplineWalker : MonoBehaviour {
                 }
             }
 
-            Vector3 position = spline.GetPoint(progress);
+            Vector3 position = spline.GetPoint(progress) + GameModel.Instance.heightOffset;
             transform.position = position;
             // transform.localPosition = position;
             if (lookForward)
