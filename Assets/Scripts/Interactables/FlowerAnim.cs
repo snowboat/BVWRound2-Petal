@@ -29,7 +29,7 @@ namespace INTERACT {
                 particle.Stop();
                 flowerAudio.Stop();
                 gaze.focusTime = 0;
-                Instantiate(GameModel.Instance.grassDistribution);
+                //Instantiate(GameModel.Instance.grassDistribution);
                 Instantiate(GameModel.Instance.flowerDistribution);
             }
         }

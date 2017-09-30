@@ -74,6 +74,7 @@ namespace BASE {
                     spawn.Spawn();
                     //Instantiate(spawn.obj, spawn.pos, Quaternion.Euler(spawn.rotation));
                 }
+                Instantiate(GameModel.Instance.grassDistribution);
             });
             Instance.Register(GameState.PINWHEEL, () => {
                 Instantiate(GameModel.Instance.flowerPrefab, GameModel.Instance.flowerPosition + GameModel.Instance.heightOffset, Quaternion.identity);

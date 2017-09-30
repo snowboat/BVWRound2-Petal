@@ -139,3 +139,7 @@ MonoBehaviour:
   minTimeInterval: 0
   maxRadius: 3
   scaleFactor: 6
+  colors:
+  - {r: 1, g: 0.6666667, b: 0.16862746, a: 1}
+  - {r: 0.9882353, g: 1, b: 0.14705884, a: 0}
+  - {r: 0.627451, g: 0.48235297, b: 0.48235297, a: 0}

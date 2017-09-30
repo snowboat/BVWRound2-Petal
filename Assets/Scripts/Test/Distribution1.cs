@@ -29,10 +29,10 @@ namespace INTERACT {
                 positions.Add(new Vector2(Mathf.Sin(degree), Mathf.Cos(degree)));
             }
             distance.Sort();
-            StartCoroutine(Generate());
+            Generate();
         }
 
-        private IEnumerator Generate() {
+        private void Generate() {
             int grassNumber = 0;
             int step = 1;
             List<int> indices = new List<int>();
@@ -51,15 +51,15 @@ namespace INTERACT {
             mf = grassLayer.AddComponent<MeshFilter>();
             renderer = grassLayer.AddComponent<MeshRenderer>();
             renderer.sharedMaterial = mat;
-            while (grassNumber < MaxNumber) {
-                m.vertices = verts.GetRange(0, grassNumber).ToArray();
-                m.SetIndices(indices.GetRange(0, grassNumber).ToArray(), MeshTopology.Points, 0);
-                mf.mesh = m;
-                grassNumber += step;
-                step++;
-                yield return null;
-            }
-            GameFlowManager.Instance.NextState();
+            m.vertices = verts.GetRange(0, MaxNumber).ToArray();
+            m.SetIndices(indices.GetRange(0, MaxNumber).ToArray(), MeshTopology.Points, 0);
+            mf.mesh = m;
+            //while (grassNumber < MaxNumber) {
+            //    grassNumber += step;
+            //    step++;
+            //    yield return null;
+            //}
+            //GameFlowManager.Instance.NextState();
         }
     }
 }

@@ -15,6 +15,7 @@ namespace INTERACT {
         public Action FlyEvent;
 
         private void ResetInteractable() {
+            GetComponent<SphereCollider>().enabled = true;
             currState = ObjectState.INTERATABLE;
             walker.SetMove(false);
             walker.spline = GameModel.Instance.petalCurvePrefab[(int)GameFlowManager.Instance.currState - 1].GetComponent<BezierSpline>();
@@ -48,6 +49,8 @@ namespace INTERACT {
         }
 
         private void ExitInteraction() {
+            GetComponent<SphereCollider>().enabled = false;
+
             gaze.GazeEvent -= GazeEvent;
             gaze.GazeEnterEvent -= GazeEnter;
             gaze.GazeExitEvent -= GazeExit;
