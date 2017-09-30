@@ -1,70 +1,61 @@
 fileFormatVersion: 2
-guid: 51dbc193a5a55f34fbc605d092794878
-timeCreated: 1506710018
+guid: e33c690ef9e7f2b44b9eb6da22889d9d
+timeCreated: 1506721687
 licenseType: Pro
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
-    100000: group1
-    100002: joint1
-    100004: pCube1
-    100006: pCube2
-    100008: pCylinder1
-    100010: //RootNode
-    100012: polySurface5
-    100014: pPlane2
-    100016: pPlane3
-    100018: pPlane4
-    100020: pPlane5
-    100022: transform1
-    100024: transform2
-    100026: transform3
-    100028: transform4
-    100030: transform5
-    100032: transform6
-    100034: pinwheel_GRP
-    100036: polySurface1
-    100038: polySurface2
-    100040: polySurface3
-    100042: polySurface4
-    400000: group1
-    400002: joint1
-    400004: pCube1
-    400006: pCube2
-    400008: pCylinder1
-    400010: //RootNode
-    400012: polySurface5
-    400014: pPlane2
-    400016: pPlane3
-    400018: pPlane4
-    400020: pPlane5
-    400022: transform1
-    400024: transform2
-    400026: transform3
-    400028: transform4
-    400030: transform5
-    400032: transform6
-    400034: pinwheel_GRP
-    400036: polySurface1
-    400038: polySurface2
-    400040: polySurface3
-    400042: polySurface4
-    2300000: pCylinder1
-    3300000: pCylinder1
-    4300000: pCylinder1
-    4300002: polySurface1
-    4300004: polySurface2
-    4300006: polySurface3
-    4300008: polySurface4
-    4300010: polySurface5
-    7400000: Start
-    7400002: Loop
+    100000: //RootNode
+    100002: group
+    100004: pasted__polySurface30
+    100006: pasted__polySurface51
+    100008: pasted__polySurface51 1
+    100010: pasted__polySurface53
+    100012: polySurface1
+    100014: polySurface1 1
+    100016: polySurface2
+    100018: polySurface3
+    100020: polySurface4
+    100022: polySurface5
+    100024: polySurface6
+    100026: transform1
+    100028: transform2
+    100030: transform3
+    100032: transform4
+    100034: transform5
+    100036: transform6
+    100038: transform7
+    400000: //RootNode
+    400002: group
+    400004: pasted__polySurface30
+    400006: pasted__polySurface51
+    400008: pasted__polySurface51 1
+    400010: pasted__polySurface53
+    400012: polySurface1
+    400014: polySurface1 1
+    400016: polySurface2
+    400018: polySurface3
+    400020: polySurface4
+    400022: polySurface5
+    400024: polySurface6
+    400026: transform1
+    400028: transform2
+    400030: transform3
+    400032: transform4
+    400034: transform5
+    400036: transform6
+    400038: transform7
+    2300000: polySurface4
+    2300002: polySurface5
+    2300004: polySurface6
+    3300000: polySurface4
+    3300002: polySurface5
+    3300004: polySurface6
+    4300000: polySurface4
+    4300002: polySurface5
+    4300004: polySurface6
+    7400000: Take 001
     9500000: //RootNode
-    13700000: polySurface1
-    13700002: polySurface2
-    13700004: polySurface3
-    13700006: polySurface4
-    13700008: polySurface5
   materials:
     importMaterials: 1
     materialName: 0
@@ -90,38 +81,10 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Start
+      name: Take 001
       takeName: Take 001
-      firstFrame: 0
-      lastFrame: 90
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Loop
-      takeName: Take 001
-      firstFrame: 90
-      lastFrame: 150
+      firstFrame: 1
+      lastFrame: 96
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

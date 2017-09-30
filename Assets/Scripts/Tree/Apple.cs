@@ -24,7 +24,7 @@ namespace INTERACT {
 
         private IEnumerator DropCoroutine() {
             while (transform.position.y > GameModel.Instance.heightOffset.y) {
-                speed += 0.98f * Time.deltaTime;
+                speed += 0.1f * Time.deltaTime;
                 transform.position += speed * Vector3.down;
                 yield return null;
             }
