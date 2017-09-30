@@ -513,7 +513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spline: {fileID: 0}
-  duration: 18
+  duration: 0
   lookForward: 1
   mode: 0
   progress: 0

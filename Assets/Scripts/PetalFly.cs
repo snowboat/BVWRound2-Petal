@@ -18,6 +18,8 @@ namespace INTERACT {
             currState = ObjectState.INTERATABLE;
             walker.SetMove(false);
             walker.spline = GameModel.Instance.petalCurvePrefab[(int)GameFlowManager.Instance.currState - 1].GetComponent<BezierSpline>();
+            walker.duration = GameModel.Instance.flyingDuration[(int)GameFlowManager.Instance.currState - 1];
+            Debug.Log(walker.duration);
             walker.progress = 0;
             glow.Play();
             trail.Stop();
