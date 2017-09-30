@@ -19,9 +19,9 @@ namespace INTERACT {
         private IEnumerator GrowApple() {
             yield return new WaitForSeconds(2f);
             GameObject apple = null;
-            for (int i = 0; i < 3; i++) {
+            for (int i = 2; i >= 0; i--) {
                 var tmp = Instantiate(applePrefab, positions[i] + transform.position, Quaternion.identity);
-                if (i == 0) {
+                if (i == 2) {
                     apple = tmp;
                 }
                 yield return new WaitForSeconds(1f);

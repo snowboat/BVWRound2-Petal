@@ -6,6 +6,8 @@ namespace INTERACT {
         private GazeObject gaze;
         public ParticleSystem glow;
         public Animator anim;
+        private AudioSource audio;
+        public AudioClip petalSound;
 
         public SpawnObject petal;
         public GameObject dyingPetal;
@@ -23,6 +25,7 @@ namespace INTERACT {
         private void ExitInteraction() {
             gaze.GazeEvent -= GazeEvent;
             glow.Stop();
+            audio.PlayOneShot(petalSound);
             var p = petal.Spawn();
             GameModel.Instance.petal = p;
             var walker = p.GetComponent<SplineWalker>();
@@ -41,6 +44,7 @@ namespace INTERACT {
         }
 
         private void Start() {
+            audio = GetComponent<AudioSource>();
             gaze = GetComponent<GazeObject>();
             gaze.GazeEvent += GazeEvent;
 
