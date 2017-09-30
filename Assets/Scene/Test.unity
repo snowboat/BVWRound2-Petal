@@ -449,15 +449,15 @@ MonoBehaviour:
   - obj: {fileID: 1866045631662032, guid: af51f244503f2124e896c3c142111a71, type: 2}
     pos: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: -90, z: 0}
-  - obj: {fileID: 1189019348260658, guid: 45b0dad9c33675d4ca9db477e7fd31f9, type: 2}
+  - obj: {fileID: 1189019348260658, guid: 76da97f8cda49d9499280b413d67949e, type: 2}
     pos: {x: -2, y: 0, z: 2.5}
     rotation: {x: 0, y: 0, z: 0}
   - obj: {fileID: 1476674616242680, guid: 6decea332038f714aa49269605edcec2, type: 2}
     pos: {x: 1, y: 0, z: 3}
     rotation: {x: 0, y: 0, z: 0}
-  - obj: {fileID: 1189019348260658, guid: 45b0dad9c33675d4ca9db477e7fd31f9, type: 2}
-    pos: {x: 3, y: 0, z: 1}
-    rotation: {x: 0, y: 140, z: 0}
+  - obj: {fileID: 1051045707622954, guid: 8313950e83608eb43bd28efb582d3986, type: 2}
+    pos: {x: 3.087, y: 0, z: 0.769}
+    rotation: {x: 0, y: 200, z: 0}
   - obj: {fileID: 1113389521500756, guid: b33d98a6087020d46b985b3256671bae, type: 2}
     pos: {x: 3.5, y: 0, z: -2}
     rotation: {x: 0, y: 0, z: 0}
