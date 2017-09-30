@@ -55,7 +55,7 @@ namespace INTERACT {
                 gaze.GazeEvent -= Waking;
                 gaze.focusTime = 0;
                 particle.Stop();
-                StartCoroutine(PetalFlyCoroutine());
+                // StartCoroutine(PetalFlyCoroutine());
             });
             Register(DOGSTATE.RUNNING, () => {
                 GameProgress.Instance.InteractedCount++;
@@ -63,6 +63,7 @@ namespace INTERACT {
             //GameFlowManager.Instance.Register(GameState.PETALFLY, () => NextState());
         }
 
+        /*
         private IEnumerator PetalFlyCoroutine()
         {
             GameFlowManager.Instance.GetPetal(1).GetComponent<SplineWalker>().SetGoingForward(false);
@@ -70,5 +71,6 @@ namespace INTERACT {
             GameFlowManager.Instance.GetPetal(1).SetActive(false);
             NextState();
         }
+        */
     }
 }

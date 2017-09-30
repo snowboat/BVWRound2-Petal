@@ -23,10 +23,6 @@ namespace INTERACT {
             cocoonObject.SetActive(false);
             butterfly.SetActive(true);
             butterfly.GetComponent<SplineWalker>().SetMove(true);
-            if (butterfly.GetComponent<SplineWalker>().spline!= null)
-            {
-                Debug.Log("has spline");
-            }
         }
 
     }

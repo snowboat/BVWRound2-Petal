@@ -411,7 +411,7 @@ MonoBehaviour:
     pos: {x: 1, y: 0, z: 3}
     rotation: {x: 0, y: 0, z: 0}
   - obj: {fileID: 1051045707622954, guid: 8313950e83608eb43bd28efb582d3986, type: 2}
-    pos: {x: 3.087, y: 0, z: 0.769}
+    pos: {x: 3.106, y: 0, z: 0.684}
     rotation: {x: 0, y: 200, z: 0}
   - obj: {fileID: 1113389521500756, guid: b33d98a6087020d46b985b3256671bae, type: 2}
     pos: {x: 3.5, y: 0, z: -2}
@@ -914,7 +914,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -1087,7 +1087,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -1167,7 +1167,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -1247,7 +1247,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
