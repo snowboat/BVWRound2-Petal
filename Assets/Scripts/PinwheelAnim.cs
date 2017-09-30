@@ -10,7 +10,7 @@ namespace INTERACT {
             GameFlowManager.Instance.Register(GameState.DOG, () => {
                 GameModel.Instance.petal.GetComponent<PetalFly>().FlyEvent += () => {
                     anim.SetTrigger("Start");
-                    GameModel.Instance.petal.GetComponent<PetalFly>().FlyEvent = null;
+                    //GameModel.Instance.petal.GetComponent<PetalFly>().FlyEvent = null;
                 };
             });
         }

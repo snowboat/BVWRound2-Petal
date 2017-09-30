@@ -12,7 +12,7 @@ namespace INTERACT {
             GameFlowManager.Instance.Register(GameState.IDLE, () => {
                 GameModel.Instance.petal.GetComponent<PetalFly>().FlyEvent += () => {
                     StartCoroutine(Butterfly());
-                    GameModel.Instance.petal.GetComponent<PetalFly>().FlyEvent = null;
+                    //GameModel.Instance.petal.GetComponent<PetalFly>().FlyEvent = null;
                 };
             });
         }

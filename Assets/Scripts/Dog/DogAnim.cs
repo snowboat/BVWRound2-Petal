@@ -16,7 +16,7 @@ namespace INTERACT {
             GameFlowManager.Instance.Register(GameState.BIRD, () => {
                 GameModel.Instance.petal.GetComponent<PetalFly>().FlyEvent += () => {
                     anim.SetTrigger("WakeUp");
-                    GameModel.Instance.petal.GetComponent<PetalFly>().FlyEvent = null;
+                    //GameModel.Instance.petal.GetComponent<PetalFly>().FlyEvent = null;
                 };
             });
             GameFlowManager.Instance.Register(GameState.DOG, () => {
@@ -49,7 +49,7 @@ namespace INTERACT {
 
         private IEnumerator GoAway() {
             var position = GameModel.Instance.heightOffset;
-            while (GameFlowManager.Instance.currState != GameState.ENDING) {
+            while (true) {
                 position.x = yuanfang.x;
                 position.z = yuanfang.z;
                 var rotation = Quaternion.LookRotation(new Vector3(position.x - transform.position.x, 0, position.z - transform.position.z));

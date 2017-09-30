@@ -1359,6 +1359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 541a76f9c03874323b5154b14ac00427, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  needFixHeight: 0
   spline: {fileID: 114932032189685092}
   duration: 10
   lookForward: 1
