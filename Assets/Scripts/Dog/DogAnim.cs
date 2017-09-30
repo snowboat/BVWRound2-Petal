@@ -7,6 +7,7 @@ namespace INTERACT {
         public Animator anim;
         public AudioSource audio;
         public float speed;
+        public GameObject trick;
 
         private Coroutine follow;
 
@@ -32,6 +33,7 @@ namespace INTERACT {
         }
 
         public void Walk() {
+            trick.transform.rotation = Quaternion.identity;
             follow = StartCoroutine(Follow());
         }
 
