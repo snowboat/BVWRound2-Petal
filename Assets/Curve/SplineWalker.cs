@@ -3,6 +3,7 @@ using System;
 using BASE;
 
 public class SplineWalker : MonoBehaviour {
+    public bool needFixHeight = true;
 
 	public BezierSpline spline;
 
@@ -68,7 +69,10 @@ public class SplineWalker : MonoBehaviour {
                 }
             }
 
-            Vector3 position = spline.GetPoint(progress) + GameModel.Instance.heightOffset;
+            Vector3 position = spline.GetPoint(progress);
+            if (needFixHeight) {
+                position += GameModel.Instance.heightOffset;
+            }
             transform.position = position;
             // transform.localPosition = position;
             if (lookForward)
