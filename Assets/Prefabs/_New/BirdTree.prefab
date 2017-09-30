@@ -1322,7 +1322,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 5af38c1ec292ae946baa905f3a425ddf, type: 2}
+  - {fileID: 2100000, guid: 946829095ecd30e4189e07ab1a35735c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1355,7 +1355,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 5af38c1ec292ae946baa905f3a425ddf, type: 2}
-  - {fileID: 2100000, guid: 08c485d07a7774946a8611100135714d, type: 2}
+  - {fileID: 2100000, guid: 5af38c1ec292ae946baa905f3a425ddf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1575,6 +1575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 541a76f9c03874323b5154b14ac00427, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  needFixHeight: 1
   spline: {fileID: 0}
   duration: 6
   lookForward: 1

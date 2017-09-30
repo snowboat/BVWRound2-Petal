@@ -30,6 +30,7 @@ namespace INTERACT {
             walker.duration = GameModel.Instance.flyingDuration[0];
             walker.SetMove(true);
             walker.onFinish += () => {
+                p.GetComponent<PetalFly>().FlyEvent = null;
                 walker.onFinish = null;
                 p.GetComponent<GazeObject>().enabled = true;
                 p.GetComponent<PetalFly>().enabled = true;

@@ -11,13 +11,13 @@ namespace INTERACT {
             GameFlowManager.Instance.Register(GameState.COCOON, () => {
                 GameModel.Instance.petal.GetComponent<PetalFly>().FlyEvent += () => {
                     StartCoroutine(GrowApple());
-                    GameModel.Instance.petal.GetComponent<PetalFly>().FlyEvent = null;
+                    //GameModel.Instance.petal.GetComponent<PetalFly>().FlyEvent = null;
                 };
             });
         }
 
         private IEnumerator GrowApple() {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
             GameObject apple = null;
             for (int i = 0; i < 3; i++) {
                 var tmp = Instantiate(applePrefab, positions[i] + transform.position, Quaternion.identity);

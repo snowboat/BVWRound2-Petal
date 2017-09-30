@@ -134,10 +134,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grassAudio: {fileID: 82834490634236668}
   grass: {fileID: 1593923906052204, guid: e92767d3c8683ac46b895bc75f1d1d24, type: 2}
-  MaxNumber: 600
+  MaxNumber: 800
   maxTimeInterval: 0.1
   minTimeInterval: 0
-  maxRadius: 3
+  maxRadius: 5
   scaleFactor: 6
   colors:
   - {r: 1, g: 0.6666667, b: 0.16862746, a: 1}

@@ -133,11 +133,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c381a114f3761b41b90cf2c3676d8a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grassAudio: {fileID: 82834490634236668}
   MaxNumber: 5000
   maxTimeInterval: 0.15
   minTimeInterval: 0.05
-  maxRadius: 5
+  maxRadius: 6
   mat: {fileID: 2100000, guid: 87f042a9770405c4697419e5b53c7c83, type: 2}
 --- !u!114 &114805017838442586
 MonoBehaviour:
@@ -157,3 +156,4 @@ MonoBehaviour:
   minTimeInterval: 0
   maxRadius: 3
   scaleFactor: 6
+  colors: []

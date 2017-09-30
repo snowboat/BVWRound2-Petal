@@ -6,7 +6,6 @@ using BASE;
 
 namespace INTERACT {
     public class Distribution1 : MonoBehaviour {
-        public AudioSource grassAudio;
         public int MaxNumber;
         public float maxTimeInterval;
         public float minTimeInterval;
@@ -21,7 +20,6 @@ namespace INTERACT {
         private List<Vector2> positions = new List<Vector2>();
 
         private void Start() {
-            grassAudio.Play();
             for (int i = 0; i < MaxNumber; i++) {
                 float radius = Mathf.Sqrt((float)rnd.NextDouble()) * maxRadius;
                 distance.Add(radius);
@@ -33,8 +31,6 @@ namespace INTERACT {
         }
 
         private void Generate() {
-            int grassNumber = 0;
-            int step = 1;
             List<int> indices = new List<int>();
             for (int i = 0; i < MaxNumber; i++) {
                 indices.Add(i);
@@ -54,12 +50,6 @@ namespace INTERACT {
             m.vertices = verts.GetRange(0, MaxNumber).ToArray();
             m.SetIndices(indices.GetRange(0, MaxNumber).ToArray(), MeshTopology.Points, 0);
             mf.mesh = m;
-            //while (grassNumber < MaxNumber) {
-            //    grassNumber += step;
-            //    step++;
-            //    yield return null;
-            //}
-            //GameFlowManager.Instance.NextState();
         }
     }
 }
