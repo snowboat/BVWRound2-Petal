@@ -27,11 +27,7 @@ namespace BASE {
         public static GameFlowManager Instance;
         private Dictionary<GameState, Action> transitions = new Dictionary<GameState, Action>();
 
-        // information of petals
-        private GameObject[] petal = new GameObject[5];
-        private int[] directionOfPetal = new int[] {-90, -80, -100, -85, -95};
-        private float[] offsetOfPetal_x = new float[] { 0f, -0.17f, 0.17f, 0f, 0f };
-        private int totalNumOfPetal = 3;
+        private GameObject newFlower;
         
 
         private void Awake() {
@@ -57,6 +53,7 @@ namespace BASE {
             }
         }
 
+        /*
         private void InitializePetal(int numOfPetal)
         {
             Vector3 offsetOfPetal = new Vector3(offsetOfPetal_x[numOfPetal], 0, 0);
@@ -66,6 +63,7 @@ namespace BASE {
             petal[numOfPetal].GetComponent<SplineWalker>().spline = curve.GetComponent<BezierSpline>();
             petal[numOfPetal].GetComponent<SplineWalker>().SetMove(true);
         }
+        */
 
         private void Start() {
             Instance.Register(GameState.CALIBRATE, () => {
@@ -77,7 +75,8 @@ namespace BASE {
                 Instantiate(GameModel.Instance.grassDistribution);
             });
             Instance.Register(GameState.PINWHEEL, () => {
-                Instantiate(GameModel.Instance.flowerPrefab, GameModel.Instance.flowerPosition + GameModel.Instance.heightOffset, Quaternion.identity);
+                newFlower = Instantiate(GameModel.Instance.flowerPrefab, GameModel.Instance.flowerPosition + GameModel.Instance.heightOffset, Quaternion.identity);
+                StartCoroutine(FlowerGrow());
             });
             //Instance.Register(GameState.PETALIDLE, () => {
             //    for (int i=0; i<totalNumOfPetal; i++)
@@ -97,14 +96,30 @@ namespace BASE {
             //});
         }
 
+        private IEnumerator FlowerGrow()
+        {
+            float maxScale = 0.25f;
+            float t = 0.0f;
+            while (t <= 1.0f)
+            {
+                float scale = Mathf.Lerp(0.01f, maxScale, t);
+                Vector3 scaleVector = new Vector3(scale, scale, scale);
+                newFlower.transform.localScale = scaleVector;
+                yield return new WaitForSeconds(Time.deltaTime);
+                t += 0.5f * Time.deltaTime;
+            }
+        }
+
         private IEnumerator WaitPetal() {
             yield return new WaitForSeconds(18f);
             Instance.NextState();
         }
 
+        /*
         public GameObject GetPetal(int numOfPetal)
         {
             return petal[numOfPetal];
         }
+        */
     }
 }

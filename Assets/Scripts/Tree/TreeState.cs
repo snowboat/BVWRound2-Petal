@@ -67,7 +67,7 @@ namespace INTERACT {
                 gaze.focusTime = 0;
                 particle.Stop();
                 // TODO: Petals should start to fly back;
-                StartCoroutine(PetalFlyCoroutine());
+                // StartCoroutine(PetalFlyCoroutine());
             });
             Register(TREESTATE.PETALFLY, () => {
                 GameProgress.Instance.InteractedCount++;
@@ -75,6 +75,7 @@ namespace INTERACT {
             //GameFlowManager.Instance.Register(GameState.PETALFLY, () => NextState());
         }
 
+        /*
         private IEnumerator PetalFlyCoroutine()
         {
             GameFlowManager.Instance.GetPetal(2).GetComponent<SplineWalker>().SetGoingForward(false);
@@ -82,5 +83,6 @@ namespace INTERACT {
             GameFlowManager.Instance.GetPetal(2).SetActive(false);
             NextState();
         }
+        */
     }
 }

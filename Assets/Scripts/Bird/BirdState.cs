@@ -60,13 +60,14 @@ namespace INTERACT {
                 transitions[currState - 1].Invoke();
             }
         }
-
+        /*
         private void StartFly() {
             standWing.SetActive(false);
             flyWing.SetActive(true);
             animator.SetTrigger("Fly");
             StartCoroutine(FlyCoroutine());
         }
+        */
 
         private void Start() {
             gaze = GetComponent<GazeObject>();
@@ -78,7 +79,7 @@ namespace INTERACT {
                 gaze.GazeEvent -= Tweeting;
                 gaze.focusTime = 0;
                 particle.Stop();
-                StartFly();
+                // StartFly();
                 // TODO: Petals should start to fly back;
              
             });
@@ -87,7 +88,7 @@ namespace INTERACT {
             });
             //GameFlowManager.Instance.Register(GameState.PETALFLY, () => NextState());
         }
-
+        /*
         private IEnumerator FlyCoroutine()
         {
             // Fly to the petal
@@ -109,5 +110,6 @@ namespace INTERACT {
             NextState();
             // Fly away #TODO
         }
+        */
     }
 }
