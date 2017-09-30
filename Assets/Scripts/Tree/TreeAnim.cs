@@ -21,6 +21,9 @@ namespace INTERACT {
             GameObject apple = null;
             for (int i = 2; i >= 0; i--) {
                 var tmp = Instantiate(applePrefab, positions[i] + transform.position, Quaternion.identity);
+                if (i == 1) {
+                    tmp.transform.localScale = 2f * Vector3.one;
+                }
                 if (i == 2) {
                     apple = tmp;
                 }
