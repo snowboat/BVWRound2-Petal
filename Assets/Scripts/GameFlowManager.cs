@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using INTERACT;
 
 namespace BASE {
     public enum ObjectState {
@@ -66,12 +67,20 @@ namespace BASE {
         */
 
         private void Start() {
+            //for (int i = 0; i < GameModel.Instance.spawnings.Length; i++) {
+            //    Instance.Register((GameState)i, () => GameModel.Instance.spawnings[i].Spawn());
+            //}
+            Instance.Register((GameState)0, () => GameModel.Instance.spawnings[0].Spawn());
+            Instance.Register((GameState)1, () => GameModel.Instance.petal.GetComponent<PetalFly>().FlyEvent += () => GameModel.Instance.spawnings[2].Spawn());
+            Instance.Register((GameState)2, () => GameModel.Instance.petal.GetComponent<PetalFly>().FlyEvent += () => GameModel.Instance.spawnings[3].Spawn());
+            Instance.Register((GameState)3, () => GameModel.Instance.petal.GetComponent<PetalFly>().FlyEvent += () => GameModel.Instance.spawnings[4].Spawn());
+            Instance.Register((GameState)4, () => GameModel.Instance.petal.GetComponent<PetalFly>().FlyEvent += () => GameModel.Instance.spawnings[5].Spawn());
             Instance.Register(GameState.CALIBRATE, () => {
                 //Instantiate(GameModel.Instance.flowerPrefab, GameModel.Instance.heightOffset + GameModel.Instance.flowerPosition, Quaternion.identity);
-                foreach (var spawn in GameModel.Instance.spawnings) {
-                    spawn.Spawn();
-                    //Instantiate(spawn.obj, spawn.pos, Quaternion.Euler(spawn.rotation));
-                }
+                //foreach (var spawn in GameModel.Instance.spawnings) {
+                //    spawn.Spawn();
+                //    //Instantiate(spawn.obj, spawn.pos, Quaternion.Euler(spawn.rotation));
+                //}
                 Instantiate(GameModel.Instance.grassDistribution);
             });
             Instance.Register(GameState.PINWHEEL, () => {

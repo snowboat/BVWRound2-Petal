@@ -3,19 +3,30 @@ using UnityEngine;
 
 namespace INTERACT {
     public class DyingFlower : MonoBehaviour {
+        public AudioSource gazing;
         private GazeObject gaze;
         public ParticleSystem glow;
         public Animator anim;
-        private AudioSource audio;
+        public AudioSource audio;
         public AudioClip petalSound;
 
         public SpawnObject petal;
         public GameObject dyingPetal;
 
+        private void GazeEnter() {
+            gazing.Play();
+            anim.SetTrigger("Start");
+        }
+
+        private void GazeExit() {
+            gazing.Stop();
+            anim.SetTrigger("Stop");
+        }
+
         private void GazeEvent(float x) {
             var emission = glow.emission;
             emission.rateOverTime = (1 + 4 * x) * 0.5f;
-            anim.Play("Shake", 0, x);
+            //anim.Play("Shake", 0, x);
             if (x == 1) {
                 emission.rateOverTime = 0.5f;
                 ExitInteraction();
@@ -23,8 +34,11 @@ namespace INTERACT {
         }
 
         private void ExitInteraction() {
+            gaze.GazeEnterEvent -= GazeEnter;
+            gaze.GazeExitEvent -= GazeExit;
             gaze.GazeEvent -= GazeEvent;
             glow.Stop();
+            GazeExit();
             audio.PlayOneShot(petalSound);
             var p = petal.Spawn();
             GameModel.Instance.petal = p;
@@ -41,12 +55,15 @@ namespace INTERACT {
             };
             dyingPetal.SetActive(false);
             anim.enabled = false;
+            GameModel.Instance.spawnings[1].Spawn();
         }
 
         private void Start() {
             audio = GetComponent<AudioSource>();
             gaze = GetComponent<GazeObject>();
             gaze.GazeEvent += GazeEvent;
+            gaze.GazeEnterEvent += GazeEnter;
+            gaze.GazeExitEvent += GazeExit;
 
             glow.Play();
         }

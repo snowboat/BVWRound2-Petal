@@ -9,12 +9,16 @@ namespace BASE {
         public AudioSource nestTheme;
         public AudioSource dogTheme;
         public AudioSource pinwheelTheme;
+        public AudioSource fountainTheme;
         public float speed;
 
         private void Start() {
             GameFlowManager.Instance.Register(GameState.CALIBRATE, () => StartCoroutine(FadeIn(petalTheme)));
             GameFlowManager.Instance.Register(GameState.IDLE, () =>
                 GameModel.Instance.petal.GetComponent<PetalFly>().FlyEvent += () => StartCoroutine(FadeIn(butterflyTheme))
+            );
+            GameFlowManager.Instance.Register(GameState.COCOON, () =>
+                GameModel.Instance.petal.GetComponent<PetalFly>().FlyEvent += () => StartCoroutine(FadeIn(fountainTheme))
             );
             GameFlowManager.Instance.Register(GameState.FRUIT, () =>
                 GameModel.Instance.petal.GetComponent<PetalFly>().FlyEvent += () => StartCoroutine(FadeIn(nestTheme))

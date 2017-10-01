@@ -4,7 +4,8 @@ using System;
 
 namespace INTERACT {
     public class PetalFly : MonoBehaviour {
-        private AudioSource audio;
+        public AudioSource gazing;
+        public AudioSource petalleave;
         public AudioClip petal;
         private SplineWalker walker;
         private GazeObject gaze;
@@ -34,10 +35,12 @@ namespace INTERACT {
         private void GazeEnter() {
             anim.SetTrigger("Shake");
             currState = ObjectState.INTERATING;
+            gazing.Play();
         }
 
         private void GazeExit() {
             anim.SetTrigger("Still");
+            gazing.Stop();
         }
 
         private void GazeEvent(float x) {
@@ -51,7 +54,7 @@ namespace INTERACT {
 
         private void ExitInteraction() {
             GetComponent<SphereCollider>().enabled = false;
-            audio.PlayOneShot(petal);
+            petalleave.PlayOneShot(petal);
 
             gaze.GazeEvent -= GazeEvent;
             gaze.GazeEnterEvent -= GazeEnter;
@@ -65,6 +68,7 @@ namespace INTERACT {
 
             anim.SetTrigger("Fly");
             currState = ObjectState.INTERATED;
+            GazeExit();
             glow.Stop();
             walker.SetMove(true);
             walker.onFinish += () => {
@@ -77,7 +81,6 @@ namespace INTERACT {
         }
 
         private void Start() {
-            audio = GetComponent<AudioSource>();
             walker = GetComponent<SplineWalker>();
             gaze = GetComponent<GazeObject>();
             ResetInteractable();

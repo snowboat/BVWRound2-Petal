@@ -15,6 +15,7 @@ namespace INTERACT {
 
         private void Start() {
             GameFlowManager.Instance.Register(GameState.BIRD, () => {
+                Destroy(GameObject.Find("Dying(Clone)"));
                 GameModel.Instance.petal.GetComponent<PetalFly>().FlyEvent += () => {
                     anim.SetTrigger("WakeUp");
                     //GameModel.Instance.petal.GetComponent<PetalFly>().FlyEvent = null;
