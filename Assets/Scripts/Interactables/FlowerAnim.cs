@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 namespace INTERACT {
     public class FlowerAnim : MonoBehaviour {
+        public AudioSource finalAudio;
         public AudioSource flowerAudio;
         public AudioSource petalAudio;
         private GazeBehaviour gaze;
@@ -34,6 +35,7 @@ namespace INTERACT {
                 gaze.focusTime = 0;
                 GetComponentInChildren<Canvas>().enabled = true;
                 creditParticle.Play();
+                finalAudio.Play();
                 StartCoroutine(CreditTransition(GetComponentInChildren<Image>()));
                 //Instantiate(GameModel.Instance.grassDistribution);
                 Instantiate(GameModel.Instance.flowerDistribution);
