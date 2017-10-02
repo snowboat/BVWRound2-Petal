@@ -34,6 +34,7 @@ namespace INTERACT {
         }
 
         public void Walk() {
+            trick.transform.position += 0.3385f * Vector3.up;
             trick.transform.localRotation = Quaternion.identity;
             follow = StartCoroutine(Follow());
         }
