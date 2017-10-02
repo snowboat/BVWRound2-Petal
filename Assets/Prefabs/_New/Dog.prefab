@@ -1547,7 +1547,7 @@ MonoBehaviour:
   audio: {fileID: 82414944145224590}
   speed: 1
   trick: {fileID: 1170169351321296}
-  yuanfang: {x: -100, y: 0, z: -100}
+  yuanfang: {x: 0, y: 0, z: -4}
 --- !u!137 &137458464179370448
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

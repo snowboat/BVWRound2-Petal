@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using BASE;
+using System.Collections;
 using System;
 
 namespace INTERACT {
@@ -68,7 +69,7 @@ namespace INTERACT {
 
             anim.SetTrigger("Fly");
             currState = ObjectState.INTERATED;
-            GazeExit();
+            StartCoroutine(FadeOut(gazing));
             glow.Stop();
             walker.SetMove(true);
             walker.onFinish += () => {
@@ -89,6 +90,15 @@ namespace INTERACT {
             GameFlowManager.Instance.Register(GameState.BIRD, () => ResetInteractable());
             GameFlowManager.Instance.Register(GameState.DOG, () => ResetInteractable());
             GameFlowManager.Instance.Register(GameState.PINWHEEL, () => Destroy(gameObject));
+        }
+
+        private IEnumerator FadeOut(AudioSource audio) {
+            while (audio.volume > 0) {
+                audio.volume -= 0.5f * Time.deltaTime;
+                yield return null;
+            }
+            audio.Stop();
+            audio.volume = 1;
         }
 
     }

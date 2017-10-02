@@ -1,6 +1,7 @@
 ﻿using BASE;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace INTERACT {
     public class FlowerAnim : MonoBehaviour {
@@ -9,6 +10,8 @@ namespace INTERACT {
         private GazeBehaviour gaze;
         public Animator animator;
         public ParticleSystem particle;
+        public ParticleSystem creditParticle;
+        public AnimationCurve curve;
 
         public GameObject[] petals;
         //private float GazeDuration = 0;
@@ -29,6 +32,9 @@ namespace INTERACT {
                 particle.Stop();
                 flowerAudio.Stop();
                 gaze.focusTime = 0;
+                GetComponentInChildren<Canvas>().enabled = true;
+                creditParticle.Play();
+                StartCoroutine(CreditTransition(GetComponentInChildren<Image>()));
                 //Instantiate(GameModel.Instance.grassDistribution);
                 Instantiate(GameModel.Instance.flowerDistribution);
             }
@@ -39,35 +45,16 @@ namespace INTERACT {
             gaze = GetComponent<GazeBehaviour>();
             gaze.GazeEvent += Blooming;
             particle.Play();
-            //GameFlowManager.Instance.Register(GameState.FLOWIDLE, () => {
-            //    gaze.GazeEvent -= Blooming;
-            //    particle.Stop();
-            //    flowerAudio.Stop();
-            //    gaze.focusTime = 0;
-            //});
-            //GameFlowManager.Instance.Register(GameState.GRASSANIM, () => {
-            //    gaze.GazeEvent += PetalFly;
-            //    particle.Play();
-            //});
-            //GameFlowManager.Instance.Register(GameState.PETALIDLE, () => {
-            //    for (int i = 0; i < petals.Length; i++) {
-            //        petals[i].SetActive(false);
-            //    }
-            //    gaze.GazeEvent -= PetalFly;
-            //    particle.Stop();
-            //    StartCoroutine(CheckPetal());
-            //    gaze.focusTime = 0;
-            //});
+        }
 
-            //GameFlowManager.Instance.Register(GameState.MAIN, () => {
-            //    gaze.GazeEvent += FlowerExplosion;
-            //    particle.Play();
-            //});
-            //GameFlowManager.Instance.Register(GameState.FINISHFLY, () => {
-            //    gaze.GazeEvent -= FlowerExplosion;
-            //    particle.Stop();
-            //    gaze.focusTime = 0;
-            //});
+        private IEnumerator CreditTransition(Image image) {
+            Color color = Color.white;
+            color.a = 0;
+            while (image.color.a < 1) {
+                color.a += 0.5f * Time.deltaTime;
+                image.color = color;
+                yield return null;
+            }
         }
     }
 }

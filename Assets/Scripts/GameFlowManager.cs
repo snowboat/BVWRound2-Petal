@@ -54,55 +54,28 @@ namespace BASE {
             }
         }
 
-        /*
-        private void InitializePetal(int numOfPetal)
-        {
-            Vector3 offsetOfPetal = new Vector3(offsetOfPetal_x[numOfPetal], 0, 0);
-            GameObject curve = Instantiate(GameModel.Instance.petalCurvePrefab[numOfPetal], GameModel.Instance.heightOffset + GameModel.Instance.heightOfFlower + GameModel.Instance.flowerPosition + offsetOfPetal, Quaternion.identity);
-            curve.transform.Rotate(0, directionOfPetal[numOfPetal], 0);
-            petal[numOfPetal] = Instantiate(GameModel.Instance.petalPrefab, GameModel.Instance.heightOffset + GameModel.Instance.flowerPosition, Quaternion.identity);
-            petal[numOfPetal].GetComponent<SplineWalker>().spline = curve.GetComponent<BezierSpline>();
-            petal[numOfPetal].GetComponent<SplineWalker>().SetMove(true);
-        }
-        */
-
         private void Start() {
-            //for (int i = 0; i < GameModel.Instance.spawnings.Length; i++) {
-            //    Instance.Register((GameState)i, () => GameModel.Instance.spawnings[i].Spawn());
-            //}
-            Instance.Register((GameState)0, () => GameModel.Instance.spawnings[0].Spawn());
+            Instance.Register((GameState)0, () => {
+                var obj = GameModel.Instance.spawnings[0].Spawn();
+                ClickManager.Instance.InputDownEvent += () => {
+                    obj.GetComponentInChildren<Canvas>().enabled = false;
+                    obj.GetComponent<SphereCollider>().enabled = true;
+                    obj.GetComponentInChildren<ParticleSystem>().Play();
+                    ClickManager.Instance.InputDownEvent = null;
+                };
+            });
+            //Instance.Register((GameState)0, () => GameModel.Instance.spawnings[0].Spawn());
             Instance.Register((GameState)1, () => GameModel.Instance.petal.GetComponent<PetalFly>().FlyEvent += () => GameModel.Instance.spawnings[2].Spawn());
             Instance.Register((GameState)2, () => GameModel.Instance.petal.GetComponent<PetalFly>().FlyEvent += () => GameModel.Instance.spawnings[3].Spawn());
             Instance.Register((GameState)3, () => GameModel.Instance.petal.GetComponent<PetalFly>().FlyEvent += () => GameModel.Instance.spawnings[4].Spawn());
             Instance.Register((GameState)4, () => GameModel.Instance.petal.GetComponent<PetalFly>().FlyEvent += () => GameModel.Instance.spawnings[5].Spawn());
             Instance.Register(GameState.CALIBRATE, () => {
-                //Instantiate(GameModel.Instance.flowerPrefab, GameModel.Instance.heightOffset + GameModel.Instance.flowerPosition, Quaternion.identity);
-                //foreach (var spawn in GameModel.Instance.spawnings) {
-                //    spawn.Spawn();
-                //    //Instantiate(spawn.obj, spawn.pos, Quaternion.Euler(spawn.rotation));
-                //}
                 Instantiate(GameModel.Instance.grassDistribution);
             });
             Instance.Register(GameState.PINWHEEL, () => {
                 newFlower = Instantiate(GameModel.Instance.flowerPrefab, GameModel.Instance.flowerPosition + GameModel.Instance.heightOffset, Quaternion.identity);
                 StartCoroutine(FlowerGrow());
             });
-            //Instance.Register(GameState.PETALIDLE, () => {
-            //    for (int i=0; i<totalNumOfPetal; i++)
-            //    {
-            //        InitializePetal(i);
-            //    }
-            //    Instantiate(GameModel.Instance.dogPrefab, GameModel.Instance.heightOffset + GameModel.Instance.dogPosition, Quaternion.identity);
-            //    Instantiate(GameModel.Instance.tree2Prefab, GameModel.Instance.heightOffset + GameModel.Instance.tree2Pos, Quaternion.identity);
-            //    Instantiate(GameModel.Instance.tree1Prefab, GameModel.Instance.heightOffset + GameModel.Instance.tree1Pos, Quaternion.identity);
-            //    StartCoroutine(WaitPetal());
-            //});
-            //Instance.Register(GameState.PETALANIM, () => {
-            //});
-            //Instance.Register(GameState.FLOWIDLE, () => Instantiate(GameModel.Instance.grassDistribution));
-            //Instance.Register(GameState.FINISHFLY, () => {
-            //    Instantiate(GameModel.Instance.flowerDistribution);
-            //});
         }
 
         private IEnumerator FlowerGrow()
@@ -114,7 +87,7 @@ namespace BASE {
                 float scale = Mathf.Lerp(0.01f, maxScale, t);
                 Vector3 scaleVector = new Vector3(scale, scale, scale);
                 newFlower.transform.localScale = scaleVector;
-                yield return new WaitForSeconds(Time.deltaTime);
+                yield return null;
                 t += 0.5f * Time.deltaTime;
             }
         }
@@ -124,11 +97,5 @@ namespace BASE {
             Instance.NextState();
         }
 
-        /*
-        public GameObject GetPetal(int numOfPetal)
-        {
-            return petal[numOfPetal];
-        }
-        */
     }
 }

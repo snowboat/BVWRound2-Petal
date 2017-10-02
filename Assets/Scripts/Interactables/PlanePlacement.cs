@@ -8,6 +8,7 @@ namespace INTERACT {
         private void OnPlacement() {
             GameModel.Instance.heightOffset.y = anchor.position.y;
             GameFlowManager.Instance.NextState();
+            ClickManager.Instance.InputDownEvent -= OnPlacement;
             Destroy(gameObject);
         }
 

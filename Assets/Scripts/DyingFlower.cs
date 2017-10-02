@@ -1,5 +1,6 @@
 ﻿using BASE;
 using UnityEngine;
+using System.Collections;
 
 namespace INTERACT {
     public class DyingFlower : MonoBehaviour {
@@ -38,7 +39,8 @@ namespace INTERACT {
             gaze.GazeExitEvent -= GazeExit;
             gaze.GazeEvent -= GazeEvent;
             glow.Stop();
-            GazeExit();
+            anim.SetTrigger("Stop");
+            StartCoroutine(FadeOut(gazing));
             audio.PlayOneShot(petalSound);
             var p = petal.Spawn();
             GameModel.Instance.petal = p;
@@ -65,7 +67,16 @@ namespace INTERACT {
             gaze.GazeEnterEvent += GazeEnter;
             gaze.GazeExitEvent += GazeExit;
 
-            glow.Play();
+            //glow.Play();
+        }
+
+        private IEnumerator FadeOut(AudioSource audio) {
+            while (audio.volume > 0) {
+                audio.volume -= 0.5f * Time.deltaTime;
+                yield return null;
+            }
+            audio.Stop();
+            audio.volume = 1;
         }
     }
 }

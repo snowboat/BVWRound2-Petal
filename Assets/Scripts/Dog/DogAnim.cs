@@ -34,7 +34,7 @@ namespace INTERACT {
         }
 
         public void Walk() {
-            trick.transform.rotation = Quaternion.identity;
+            trick.transform.localRotation = Quaternion.identity;
             follow = StartCoroutine(Follow());
         }
 
@@ -52,7 +52,7 @@ namespace INTERACT {
 
         private IEnumerator GoAway() {
             var position = GameModel.Instance.heightOffset;
-            while (true) {
+            while (Vector3.Distance(transform.position, yuanfang) > 0.2f) {
                 position.x = yuanfang.x;
                 position.z = yuanfang.z;
                 var rotation = Quaternion.LookRotation(new Vector3(position.x - transform.position.x, 0, position.z - transform.position.z));
@@ -60,6 +60,10 @@ namespace INTERACT {
                 transform.position += speed * Time.deltaTime * (transform.rotation * Vector3.forward);
                 yield return null;
             }
+            //while (true) {
+            //    transform.RotateAround(Vector3.zero, Vector3.up, -speed * Time.deltaTime / Vector3.Distance(transform.position, Vector3.zero));
+            //    yield return null;
+            //}
         }
     }
 }
