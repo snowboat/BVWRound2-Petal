@@ -15,6 +15,9 @@ namespace INTERACT {
         public AnimationCurve curve;
 
         public GameObject[] petals;
+
+        public AudioSource narration;
+        public AudioClip narrationClip;
         //private float GazeDuration = 0;
 
         private void Blooming(float x) {
@@ -36,6 +39,7 @@ namespace INTERACT {
                 GetComponentInChildren<Canvas>().enabled = true;
                 creditParticle.Play();
                 finalAudio.Play();
+                StartCoroutine(StartNarration());
                 StartCoroutine(CreditTransition(GetComponentInChildren<Image>()));
                 //Instantiate(GameModel.Instance.grassDistribution);
                 Instantiate(GameModel.Instance.flowerDistribution);
@@ -57,6 +61,11 @@ namespace INTERACT {
                 image.color = color;
                 yield return null;
             }
+        }
+
+        private IEnumerator StartNarration() {
+            yield return new WaitForSeconds(1f);
+            narration.PlayOneShot(narrationClip);
         }
     }
 }

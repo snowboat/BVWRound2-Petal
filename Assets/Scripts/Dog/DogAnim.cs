@@ -25,7 +25,7 @@ namespace INTERACT {
                 if (follow != null) {
                     StopCoroutine(follow);
                 }
-                StartCoroutine(GoAway());
+                //StartCoroutine(GoAway());
             });
         }
 
