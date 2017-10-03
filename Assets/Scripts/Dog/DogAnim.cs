@@ -25,7 +25,10 @@ namespace INTERACT {
                 if (follow != null) {
                     StopCoroutine(follow);
                 }
-                StartCoroutine(GoAway());
+                GetComponent<SplineWalker>().spline = GameModel.Instance.dogCurve.GetComponent<BezierSpline>();
+                GetComponent<SplineWalker>().SetMove(true);
+
+                // StartCoroutine(GoAway());
             });
         }
 

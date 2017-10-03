@@ -23,6 +23,7 @@ namespace BASE {
         public float[] flyingDuration;
         public GameObject dogPrefab;
         public Vector3 dogPosition;
+        public GameObject dogCurve;
         public GameObject grassDistribution;
         public GameObject flowerDistribution;
         public Vector3 heightOfFlower;

@@ -272,6 +272,62 @@ Transform:
   m_Father: {fileID: 1392758185}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1074442729
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1074442731}
+  - component: {fileID: 1074442730}
+  m_Layer: 0
+  m_Name: DogCurve
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1074442730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1074442729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b154883273c2845f39445c8015d81639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points:
+  - {x: 0, y: 0, z: 0}
+  - {x: -0.5, y: 0, z: 0}
+  - {x: -0.20033741, y: 0, z: 1.2754723}
+  - {x: -1.4379207, y: 0, z: 1.2127486}
+  - {x: -2.1769767, y: 0, z: 1.1471292}
+  - {x: -2.7529054, y: 0, z: -0.41895592}
+  - {x: -2.0917377, y: 0, z: -0.9674548}
+  - {x: -1.4763604, y: 0, z: -1.5527405}
+  - {x: -1.1019784, y: 0, z: -1.6640695}
+  - {x: -0.3745495, y: 0, z: -1.2860559}
+  - {x: 0.5364029, y: 0, z: -0.83508074}
+  - {x: 0.3579154, y: 0, z: 0.027307637}
+  - {x: 0, y: 0, z: 0}
+  modes: 0000000000000000000000000000000000000000
+  loop: 1
+--- !u!4 &1074442731
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1074442729}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.243457, y: 0, z: 0.0611}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1121968985
 Prefab:
   m_ObjectHideFlags: 0
@@ -385,10 +441,11 @@ MonoBehaviour:
   - 10
   - 14
   - 12
-  - 16
+  - 15
   - 8
   dogPrefab: {fileID: 1113389521500756, guid: b33d98a6087020d46b985b3256671bae, type: 2}
   dogPosition: {x: 1.5, y: 0, z: -1.5}
+  dogCurve: {fileID: 1074442729}
   grassDistribution: {fileID: 1213177057163284, guid: 80b9d8fc4ab731e439a41b21d8ced343,
     type: 2}
   flowerDistribution: {fileID: 1213177057163284, guid: f253915919b37514a86ebc458d42ec09,

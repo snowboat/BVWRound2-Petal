@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 4235969094054690}
   - component: {fileID: 95519181559046342}
   - component: {fileID: 114586748228866802}
+  - component: {fileID: 114406817132609610}
   - component: {fileID: 82414944145224590}
   m_Layer: 0
   m_Name: Dog
@@ -1532,6 +1533,24 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114406817132609610
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1113389521500756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 541a76f9c03874323b5154b14ac00427, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  needFixHeight: 1
+  spline: {fileID: 0}
+  duration: 10
+  lookForward: 1
+  mode: 1
+  progress: 0
+  rotationAdjustment: {x: 0, y: 0, z: 0}
 --- !u!114 &114586748228866802
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1545,7 +1564,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 95519181559046342}
   audio: {fileID: 82414944145224590}
-  speed: 1
+  speed: 0.8
   trick: {fileID: 1170169351321296}
   yuanfang: {x: 0, y: 0, z: -4}
 --- !u!137 &137458464179370448
