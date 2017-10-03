@@ -14,6 +14,9 @@ namespace INTERACT {
         public SpawnObject petal;
         public GameObject dyingPetal;
 
+        public AudioSource narration;
+        public AudioClip narrationClip;
+
         private void GazeEnter() {
             gazing.Play();
             anim.SetTrigger("Start");
@@ -42,6 +45,7 @@ namespace INTERACT {
             anim.SetTrigger("Stop");
             StartCoroutine(FadeOut(gazing));
             audio.PlayOneShot(petalSound);
+            StartCoroutine(StartNarration());
             var p = petal.Spawn();
             GameModel.Instance.petal = p;
             var walker = p.GetComponent<SplineWalker>();
@@ -78,5 +82,11 @@ namespace INTERACT {
             audio.Stop();
             audio.volume = 1;
         }
+
+        private IEnumerator StartNarration() {
+            yield return new WaitForSeconds(1f);
+            narration.PlayOneShot(narrationClip);
+        }
+
     }
 }

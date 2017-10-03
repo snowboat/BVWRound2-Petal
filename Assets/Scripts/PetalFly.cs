@@ -5,12 +5,16 @@ using System;
 
 namespace INTERACT {
     public class PetalFly : MonoBehaviour {
+        public AudioSource narration;
+        public AudioClip[] clips;
         public AudioSource gazing;
         public AudioSource petalleave;
         public AudioClip petal;
         private SplineWalker walker;
         private GazeObject gaze;
         private ObjectState currState;
+
+        private int clipNumber = 0;
 
         public ParticleSystem glow;
         public ParticleSystem trail;
@@ -57,6 +61,8 @@ namespace INTERACT {
             GetComponent<SphereCollider>().enabled = false;
             petalleave.PlayOneShot(petal);
 
+            StartCoroutine(StartNarration());
+
             gaze.GazeEvent -= GazeEvent;
             gaze.GazeEnterEvent -= GazeEnter;
             gaze.GazeExitEvent -= GazeExit;
@@ -99,6 +105,11 @@ namespace INTERACT {
             }
             audio.Stop();
             audio.volume = 1;
+        }
+
+        private IEnumerator StartNarration() {
+            yield return new WaitForSeconds(1f);
+            narration.PlayOneShot(clips[clipNumber++]);
         }
 
     }

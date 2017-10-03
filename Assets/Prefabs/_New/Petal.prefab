@@ -256,6 +256,7 @@ GameObject:
   - component: {fileID: 114319259282614702}
   - component: {fileID: 82086611756466166}
   - component: {fileID: 82110018582915904}
+  - component: {fileID: 82053890040625792}
   m_Layer: 0
   m_Name: Petal
   m_TagString: Untagged
@@ -486,6 +487,86 @@ Transform:
   m_Father: {fileID: 4698556434425388}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &82053890040625792
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1943843111898472}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!82 &82086611756466166
 AudioSource:
   m_ObjectHideFlags: 1
@@ -574,7 +655,8 @@ AudioSource:
   m_GameObject: {fileID: 1943843111898472}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243239736250042054, guid: 87941bdc60579c44da8b9dd037358f2b,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 41b4641efe6b32e49b2cab40875202d5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -692,6 +774,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdc4eac057f66594dbe843f28d6d6b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  narration: {fileID: 82053890040625792}
+  clips:
+  - {fileID: 8300000, guid: c29b23bfca3fd7a4e8bb3466ea6c01c0, type: 3}
+  - {fileID: 8300000, guid: 852288b146b51564d87699aa06700fdd, type: 3}
+  - {fileID: 8300000, guid: a007de72c3ab3324c828bb6f3b20ea58, type: 3}
+  - {fileID: 8300000, guid: 48e840c51bdc2ac47a59ee077415cecb, type: 3}
+  - {fileID: 8300000, guid: 7d5432326cf55d647ba43975e8a2bd30, type: 3}
+  - {fileID: 8300000, guid: ccb1d1771cd697545b39cba7441c251f, type: 3}
   gazing: {fileID: 82110018582915904}
   petalleave: {fileID: 82086611756466166}
   petal: {fileID: 8300000, guid: 34a994f700a7c1d4b9d44255b6ffc179, type: 3}

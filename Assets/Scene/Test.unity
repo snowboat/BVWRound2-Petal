@@ -1343,7 +1343,7 @@ MonoBehaviour:
   dogTheme: {fileID: 1822898446}
   pinwheelTheme: {fileID: 1822898443}
   fountainTheme: {fileID: 1822898450}
-  speed: 0.5
+  speed: 0.25
 --- !u!82 &1822898450
 AudioSource:
   m_ObjectHideFlags: 0

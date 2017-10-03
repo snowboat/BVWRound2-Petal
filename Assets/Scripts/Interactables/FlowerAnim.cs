@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 namespace INTERACT {
     public class FlowerAnim : MonoBehaviour {
+        public AudioSource finalAudio;
         public AudioSource flowerAudio;
         public AudioSource petalAudio;
         private GazeBehaviour gaze;
@@ -14,6 +15,9 @@ namespace INTERACT {
         public AnimationCurve curve;
 
         public GameObject[] petals;
+
+        public AudioSource narration;
+        public AudioClip narrationClip;
         //private float GazeDuration = 0;
 
         private void Blooming(float x) {
@@ -34,6 +38,7 @@ namespace INTERACT {
                 gaze.focusTime = 0;
                 GetComponentInChildren<Canvas>().enabled = true;
                 creditParticle.Play();
+                finalAudio.Play();
                 StartCoroutine(CreditTransition(GetComponentInChildren<Image>()));
                 //Instantiate(GameModel.Instance.grassDistribution);
                 Instantiate(GameModel.Instance.flowerDistribution);
@@ -45,6 +50,7 @@ namespace INTERACT {
             gaze = GetComponent<GazeBehaviour>();
             gaze.GazeEvent += Blooming;
             particle.Play();
+            StartCoroutine(StartNarration());
         }
 
         private IEnumerator CreditTransition(Image image) {
@@ -55,6 +61,11 @@ namespace INTERACT {
                 image.color = color;
                 yield return null;
             }
+        }
+
+        private IEnumerator StartNarration() {
+            yield return new WaitForSeconds(1f);
+            narration.PlayOneShot(narrationClip);
         }
     }
 }

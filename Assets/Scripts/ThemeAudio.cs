@@ -29,6 +29,14 @@ namespace BASE {
             GameFlowManager.Instance.Register(GameState.DOG, () =>
                 GameModel.Instance.petal.GetComponent<PetalFly>().FlyEvent += () => StartCoroutine(FadeIn(pinwheelTheme))
             );
+            GameFlowManager.Instance.Register(GameState.PINWHEEL, () => {
+                StartCoroutine(FadeOut(butterflyTheme));
+                StartCoroutine(FadeOut(nestTheme));
+                StartCoroutine(FadeOut(dogTheme));
+                StartCoroutine(FadeOut(pinwheelTheme));
+                StartCoroutine(FadeOut(fountainTheme));
+                StartCoroutine(FadeOut(petalTheme));
+            });
         }
 
         private IEnumerator FadeIn(AudioSource audio) {
@@ -37,5 +45,13 @@ namespace BASE {
                 yield return null;
             }
         }
+
+        private IEnumerator FadeOut(AudioSource audio) {
+            while (audio.volume >= 0) {
+                audio.volume -= speed * Time.deltaTime;
+                yield return null;
+            }
+        }
+
     }
 }
